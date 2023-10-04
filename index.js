@@ -4,7 +4,7 @@ import { loadNpmModule } from "./lib/load-npm-module.js";
 
 async function tryImport(moduleId) {
 	try {
-		return (await import(moduleId)).default;
+		return await import(moduleId);
 	} catch {}
 }
 
@@ -12,7 +12,8 @@ async function importFrom(fromDirectory, moduleId) {
 	// https://nodejs.org/api/modules.html#core-modules
 	// TODO: write test and make this is working as expected
 	if (/^node:/.test(moduleId) || builtinModules.includes(moduleId)) {
-		return (await import(moduleId)).default;
+		console.debug('------------- NODE BUILTIN MODULE DETECTED');
+		return import(moduleId);
 	}
 
 	let loadedModule;
