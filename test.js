@@ -1,8 +1,8 @@
 import test from 'ava';
-import importFrom from '.';
+import importFrom from './index.js';
 
 test('importFrom()', t => {
-	t.is(importFrom('fixture', './fixture'), 'unicorn');
+	t.is(importFrom('fixture', './fixture.cjs'), 'unicorn');
 	t.throws(() => importFrom('fixture', './nonexistent'));
 
 	const moduleNotFoundError = t.throws(() => {
@@ -13,6 +13,6 @@ test('importFrom()', t => {
 });
 
 test('importFrom.silent()', t => {
-	t.is(importFrom.silent('fixture', './fixture'), 'unicorn');
+	t.is(importFrom.silent('fixture', './fixture.cjs'), 'unicorn');
 	t.is(importFrom.silent('fixture', './nonexistent'), undefined);
 });

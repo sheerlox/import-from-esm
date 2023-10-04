@@ -1,11 +1,13 @@
-'use strict';
-const path = require('path');
-const {createRequire} = require('module');
+import { createRequire } from 'module';
+import path from 'path';
 
-module.exports = (fromDirectory, moduleId) => createRequire(path.resolve(fromDirectory, 'noop.js'))(moduleId);
+const importFrom = (fromDirectory, moduleId) => createRequire(path.resolve(fromDirectory, 'noop.js'))(moduleId);
 
-module.exports.silent = (fromDirectory, moduleId) => {
+
+importFrom.silent = (fromDirectory, moduleId) => {
 	try {
 		return createRequire(path.resolve(fromDirectory, 'noop.js'))(moduleId);
 	} catch {}
 };
+
+export default importFrom;
