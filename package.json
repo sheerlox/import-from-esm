@@ -1,15 +1,17 @@
 {
-	"name": "import-from",
-	"version": "4.0.0",
-	"description": "Import a module like with `require()` but from a given path",
+	"name": "import-from-esm",
+	"version": "0.1.0",
+	"main": "index.js",
+	"description": "Import a module like with `require()` but from a given path (for ESM)",
 	"license": "MIT",
-	"repository": "sindresorhus/import-from",
-	"funding": "https://github.com/sponsors/sindresorhus",
-	"author": {
-		"name": "Sindre Sorhus",
-		"email": "sindresorhus@gmail.com",
-		"url": "https://sindresorhus.com"
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/sheerlox/import-from-esm.git"
 	},
+	"author": "Pierre Cavin <me@sherlox.io> (https://github.com/sheerlox)",
+	"contributors": [
+		"Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)"
+	],
 	"engines": {
 		"node": ">=12.2"
 	},

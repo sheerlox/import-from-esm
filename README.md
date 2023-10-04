@@ -1,21 +1,23 @@
-# import-from
+# import-from-esm
 
-> Import a module like with [`require()`](https://nodejs.org/api/modules.html#modules_require_id) but from a given path
+> Import a module like with [`require()`](https://nodejs.org/api/modules.html#modules_require_id) but from a given path (for ESM)
+
+This is the ESM version of the [`import-from`](https://github.com/sindresorhus/import-from), exposing the same API and behavior but supporting ESM modules. Just add `await` before `importFrom`/`importFrom.silent`
 
 ## Install
 
 ```
-$ npm install import-from
+$ npm install import-from-esm
 ```
 
 ## Usage
 
 ```js
-const importFrom = require('import-from');
+import importFrom from "import-from-esm";
 
 // There is a file at `./foo/bar.js`
 
-importFrom('foo', './bar');
+importFrom("foo", "./bar");
 ```
 
 ## API
@@ -45,14 +47,15 @@ What you would use in `require()`.
 Create a partial using a bound function if you want to import from the same `fromDir` multiple times:
 
 ```js
-const importFromFoo = importFrom.bind(null, 'foo');
+const importFromFoo = importFrom.bind(null, "foo");
 
-importFromFoo('./bar');
-importFromFoo('./baz');
+importFromFoo("./bar");
+importFromFoo("./baz");
 ```
 
 ## Related
 
+- [import-from](https://github.com/sindresorhus/import-from) - Import a module like with `require()` but from a given path
 - [import-cwd](https://github.com/sindresorhus/import-cwd) - Import a module from the current working directory
 - [resolve-from](https://github.com/sindresorhus/resolve-from) - Resolve the path of a module from a given path
 - [resolve-cwd](https://github.com/sindresorhus/resolve-cwd) - Resolve the path of a module from the current working directory
