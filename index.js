@@ -1,13 +1,25 @@
-import { createRequire } from 'module';
-import path from 'path';
+import { resolve } from 'path';
 
-const importFrom = (fromDirectory, moduleId) => createRequire(path.resolve(fromDirectory, 'noop.js'))(moduleId);
+async function importFrom (fromDirectory, moduleId) {
+  const localModulePath = resolve(fromDirectory, moduleId);
 
-
-importFrom.silent = (fromDirectory, moduleId) => {
-	try {
-		return createRequire(path.resolve(fromDirectory, 'noop.js'))(moduleId);
-	} catch {}
+  try {
+    return (await import(moduleId)).default;
+  } catch (e) {
+    try {
+      return (await import(localModulePath)).default;
+    } catch (e) {
+      const error = new Error(`Cannot find module '${moduleId}'`);
+      error.code = "MODULE_NOT_FOUND";
+      throw error;
+    }
+  }
 };
+
+importFrom.silent = async function (fromDirectory, moduleId) {
+	try {
+		return (await importFrom(fromDirectory, moduleId));
+	} catch {}
+}
 
 export default importFrom;
