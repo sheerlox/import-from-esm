@@ -21,7 +21,8 @@
 	},
 	"files": [
 		"index.js",
-		"index.d.ts"
+		"index.d.ts",
+		"lib/**/*.js"
 	],
 	"keywords": [
 		"require",
@@ -33,9 +34,6 @@
 		"import",
 		"path"
 	],
-	"dependencies": {
-		"import-meta-resolve": "^3.0.0"
-	},
 	"devDependencies": {
 		"ava": "^5.3.1",
 		"tsd": "^0.29.0",
