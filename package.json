@@ -14,7 +14,7 @@
 		"Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)"
 	],
 	"engines": {
-		"node": ">=12.2"
+		"node": ">=16.20"
 	},
 	"scripts": {
 		"test": "ava && tsd"
