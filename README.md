@@ -1,5 +1,12 @@
 # import-from-esm
 
+[![Version](https://badgen.net/npm/v/import-from-esm?icon=npm)](https://badgen.net/npm/v/import-from-esm)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/sheerlox/import-from-esm/badge)](https://securityscorecards.dev/viewer/?uri=github.com/sheerlox/import-from-esm)
+[![Test](https://github.com/sheerlox/import-from-esm/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/sheerlox/import-from-esm/actions/workflows/main.yml)
+[![CodeQL](https://github.com/sheerlox/import-from-esm/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/sheerlox/import-from-esm/actions/workflows/codeql.yml)
+
+## Overview
+
 > Import a module like with [`require()`](https://nodejs.org/api/modules.html#modules_require_id) but from a given path (for ESM)
 
 This is the ESM version of the [`import-from`](https://github.com/sindresorhus/import-from), exposing the same API and behavior but supporting ESM modules. Just add `await` before `importFrom`/`importFrom.silent`
@@ -24,6 +31,10 @@ await importFrom("foo", "./bar");
 
 // to access the default export
 (await importFrom("foo", "./bar")).default;
+
+// note: us the optional chaining operator when using .silent()
+// since no error will be thrown if the module is not found
+(await importFrom.silent("foo", "./bar"))?.default;
 ```
 
 ## API
