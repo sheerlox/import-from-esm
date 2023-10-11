@@ -1,3 +1,21 @@
+## [1.0.0](https://github.com/sheerlox/import-from-esm/compare/v0.1.1...v1.0.0) (2023-10-11)
+
+
+### ⚠ Breaking changes
+
+* now only returns the default export to match import-from behavior
+
+### ⚙️ Continuous Integrations
+
+* **action:** apply step-security recommended policies ([5d8effa](https://github.com/sheerlox/import-from-esm/commit/5d8effa29846717f519196855a39cb3afeef2013))
+* **action:** fix test workflow running twice ([6e7819a](https://github.com/sheerlox/import-from-esm/commit/6e7819a5cc20d5fc208c9b33f2c78c6954675d50))
+* **action:** set release workflow permissions as read-only ([73403ee](https://github.com/sheerlox/import-from-esm/commit/73403eebc0ae86c02b618fc576d570481e0762e3))
+
+
+### 🗑 Reverts
+
+* revert "feat!: export whole module instead of default export" ([7879e2f](https://github.com/sheerlox/import-from-esm/commit/7879e2fd4bb692eba1db4cc46b8994ce2d6c2ae3))
+
 ## [0.1.1](https://github.com/sheerlox/import-from-esm/compare/v0.1.0...v0.1.1) (2023-10-11)
 
 
