@@ -17,7 +17,7 @@
 		"node": ">=16.20"
 	},
 	"scripts": {
-		"test": "ava && tsd",
+		"test": "c8 ava && tsd",
 		"lint": "xo",
 		"lint:fix": "xo --fix"
 	},
@@ -38,6 +38,7 @@
 	],
 	"devDependencies": {
 		"ava": "5.3.1",
+		"c8": "^8.0.1",
 		"tsd": "0.29.0",
 		"xo": "0.56.0"
 	},
@@ -52,5 +53,19 @@
 		"ignores": [
 			"lib/"
 		]
+	},
+	"c8": {
+		"include": [
+			"index.js"
+		],
+		"check-coverage": true,
+		"reporter": [
+			"text",
+			"json"
+		],
+		"statements": 95,
+		"branches": 85,
+		"functions": 100,
+		"lines": 95
 	}
 }

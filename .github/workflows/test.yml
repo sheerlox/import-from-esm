@@ -41,3 +41,11 @@ jobs:
 
       - name: Run tests
         run: npm test
+
+      - name: Upload coverage reports to Codecov
+        if: ${{ matrix.node-version == 20 }}
+        uses: codecov/codecov-action@eaaf4bedf32dbdc6b720b63067d99c4d77d6047d # v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: coverage/coverage-final.json
+          fail_ci_if_error: true

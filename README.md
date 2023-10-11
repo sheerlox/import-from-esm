@@ -1,9 +1,10 @@
 # import-from-esm
 
 [![Version](https://badgen.net/npm/v/import-from-esm?icon=npm)](https://badgen.net/npm/v/import-from-esm)
-[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/sheerlox/import-from-esm/badge)](https://securityscorecards.dev/viewer/?uri=github.com/sheerlox/import-from-esm)
 [![Test](https://github.com/sheerlox/import-from-esm/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/sheerlox/import-from-esm/actions/workflows/test.yml)
 [![CodeQL](https://github.com/sheerlox/import-from-esm/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/sheerlox/import-from-esm/actions/workflows/codeql.yml)
+[![codecov](https://codecov.io/gh/sheerlox/import-from-esm/graph/badge.svg?token=F1N0PLY45Z)](https://codecov.io/gh/sheerlox/import-from-esm)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/sheerlox/import-from-esm/badge)](https://securityscorecards.dev/viewer/?uri=github.com/sheerlox/import-from-esm)
 
 ## Overview
 
