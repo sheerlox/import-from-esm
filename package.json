@@ -17,7 +17,9 @@
 		"node": ">=16.20"
 	},
 	"scripts": {
-		"test": "ava && tsd"
+		"test": "ava && tsd",
+		"lint": "xo",
+		"lint:fix": "xo --fix"
 	},
 	"files": [
 		"index.js",
@@ -38,5 +40,17 @@
 		"ava": "5.3.1",
 		"tsd": "0.29.0",
 		"xo": "0.56.0"
+	},
+	"xo": {
+		"rules": {
+			"unicorn/no-await-expression-member": "off",
+			"object-curly-spacing": [
+				"error",
+				"always"
+			]
+		},
+		"ignores": [
+			"lib/"
+		]
 	}
 }

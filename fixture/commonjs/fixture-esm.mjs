@@ -1,1 +1,2 @@
-export default 'unicorn';
+const unicorn = 'unicorn';
+export default unicorn;
