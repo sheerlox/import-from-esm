@@ -25,17 +25,9 @@ $ npm install import-from-esm
 ```js
 import importFrom from "import-from-esm";
 
-// note: there is a file at `./foo/bar.{js,mjs,cjs}`
+// there is a file at `./foo/bar.{js,mjs,cjs}`
 
-// to load the whole module (default export + named exported)
 await importFrom("foo", "./bar");
-
-// to access the default export
-(await importFrom("foo", "./bar")).default;
-
-// note: us the optional chaining operator when using .silent()
-// since no error will be thrown if the module is not found
-(await importFrom.silent("foo", "./bar"))?.default;
 ```
 
 ## API

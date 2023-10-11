@@ -31,18 +31,16 @@ async function importFrom(fromDirectory, moduleId) {
 				}
 			}
 		}
-
-		if (loadedModule) {
-			return loadedModule;
-		}
 	}
 
 	// https://nodejs.org/api/modules.html#loading-from-node_modules-folders
 	// try to resolve from built-in or npm modules
-	try {
-		const parentModulePath = pathToFileURL(resolve(fromDirectory, 'noop.js'));
-		loadedModule = await import(packageResolve(moduleId, parentModulePath, new Set(['node', 'import'])));
-	} catch {}
+	if (!loadedModule) {
+		try {
+			const parentModulePath = pathToFileURL(resolve(fromDirectory, 'noop.js'));
+			loadedModule = await import(packageResolve(moduleId, parentModulePath, new Set(['node', 'import'])));
+		} catch {}
+	}
 
 	if (!loadedModule) {
 		const error = new Error(`Cannot find module '${moduleId}'`);
@@ -50,7 +48,7 @@ async function importFrom(fromDirectory, moduleId) {
 		throw error;
 	}
 
-	return loadedModule;
+	return loadedModule.default;
 }
 
 importFrom.silent = async function (fromDirectory, moduleId) {

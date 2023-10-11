@@ -1,6 +1,5 @@
 # TODO
 
-- [x] don't export default, export whole module (adds a breaking change)
 - [x] import the specific npm module resolution from `import-meta-resolve` (its running a full ESM module resolution mechanism, while we only want npm module resolution with subpaths)
 
 ### extracting `packageResolve()` from `import-meta-resolve`
