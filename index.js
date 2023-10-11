@@ -1,6 +1,6 @@
-import { builtinModules } from "node:module";
 import { resolve } from "node:path";
-import { loadNpmModule } from "./lib/load-npm-module.js";
+import { pathToFileURL } from "node:url";
+import { packageResolve } from "./lib/import-meta-resolve/resolve.js";
 
 async function tryImport(moduleId) {
 	try {
@@ -9,13 +9,6 @@ async function tryImport(moduleId) {
 }
 
 async function importFrom(fromDirectory, moduleId) {
-	// https://nodejs.org/api/modules.html#core-modules
-	// TODO: write test and make this is working as expected
-	if (/^node:/.test(moduleId) || builtinModules.includes(moduleId)) {
-		console.debug('------------- NODE BUILTIN MODULE DETECTED');
-		return import(moduleId);
-	}
-
 	let loadedModule;
 
 	// https://nodejs.org/api/modules.html#file-modules
@@ -40,13 +33,19 @@ async function importFrom(fromDirectory, moduleId) {
 	}
 
 	// https://nodejs.org/api/modules.html#loading-from-node_modules-folders
-	// try to resolve npm module
-	loadedModule = await loadNpmModule(fromDirectory, moduleId);
-	if (loadedModule) return loadedModule;
+	// try to resolve from built-in or npm modules
+	try {
+		const parentModulePath = pathToFileURL(resolve(fromDirectory, "noop.js"));
+		loadedModule = await import(packageResolve(moduleId, parentModulePath, new Set(['node', 'import'])));
+	} catch {}
 
-	const error = new Error(`Cannot find module '${moduleId}'`);
-	error.code = "MODULE_NOT_FOUND";
-	throw error;
+	if (!loadedModule) {
+		const error = new Error(`Cannot find module '${moduleId}'`);
+		error.code = "MODULE_NOT_FOUND";
+		throw error;
+	}
+
+	return loadedModule;
 }
 
 importFrom.silent = async function (fromDirectory, moduleId) {
