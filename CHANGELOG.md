@@ -1,3 +1,27 @@
+## [1.0.1](https://github.com/sheerlox/import-from-esm/compare/v1.0.0...v1.0.1) (2023-10-12)
+
+
+### 📚 Documentation
+
+* **readme:** update badges ([4551845](https://github.com/sheerlox/import-from-esm/commit/4551845aa8b123bc3025fd73b5c047d0dba245fb))
+* remove TODO.md & update RESOURCES.md ([3768077](https://github.com/sheerlox/import-from-esm/commit/3768077bf44c2fe2155699e67fcfe7f7242b0aab))
+
+
+### ⚙️ Continuous Integrations
+
+* **action:** add sonarcloud scan to test workflow ([ab3ff0e](https://github.com/sheerlox/import-from-esm/commit/ab3ff0eb2bc988883b7ff75688c0c476bc2016c7))
+* **action:** apply step-security recommended policies ([c674db6](https://github.com/sheerlox/import-from-esm/commit/c674db66c759c505a6ddcaf95be56f8f2807a029))
+* **action:** replace codecov with sonarcloud ([4037b3b](https://github.com/sheerlox/import-from-esm/commit/4037b3b2451c2c03b26ce3eba7ca2668c166218a))
+
+
+### ♻️ Chores
+
+* **deps:** pin dependencies ([#16](https://github.com/sheerlox/import-from-esm/issues/16)) ([cb41d6b](https://github.com/sheerlox/import-from-esm/commit/cb41d6b4a7a2288f91eac3a19d1b5447b4df9369))
+* move test files to a dedicated folder ([acbecd3](https://github.com/sheerlox/import-from-esm/commit/acbecd3962823456bb673d6825ccb7c2a3628372))
+* move tsd files to tests folder ([96d3297](https://github.com/sheerlox/import-from-esm/commit/96d329708ba8b4941352364f9cc86cc096b4acbf))
+* **sonarcloud:** exclude test files from coverage ([ab4cdad](https://github.com/sheerlox/import-from-esm/commit/ab4cdad2b0b3b92586ae328c19e9a024b4565b57))
+* update LICENSE ([c6f8d74](https://github.com/sheerlox/import-from-esm/commit/c6f8d745f7739451b9c6f455ec1d39193c5b8206))
+
 ## [1.0.0](https://github.com/sheerlox/import-from-esm/compare/v0.1.1...v1.0.0) (2023-10-11)
 
 
