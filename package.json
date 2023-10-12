@@ -17,7 +17,7 @@
 		"node": ">=16.20"
 	},
 	"scripts": {
-		"test": "c8 ava && tsd",
+		"test": "c8 ava && tsd --files tests/**/*.test-d.ts",
 		"lint": "xo",
 		"lint:fix": "xo --fix"
 	},
