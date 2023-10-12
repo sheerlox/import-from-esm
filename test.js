@@ -4,8 +4,9 @@ import test from 'ava';
 import importFrom from './index.js';
 
 const testImportFrom = async (t, dir, file, ext) => {
-	const moduleId = `./${file}${ext ? `.${ext}` : ''}`;
-	const nonExistentModuleId = `./nonexistent${ext ? `.${ext}` : ''}`;
+	const extString = ext ? `.${ext}` : '';
+	const moduleId = `./${file}${extString}`;
+	const nonExistentModuleId = `./nonexistent${extString}`;
 
 	t.is(await importFrom(dir, moduleId), 'unicorn');
 

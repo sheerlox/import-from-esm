@@ -11,6 +11,8 @@ on:
     secrets:
       CODECOV_TOKEN:
         required: true
+      SONAR_TOKEN:
+        required: true
 
 permissions:
   contents: read
@@ -66,17 +68,40 @@ jobs:
           files: coverage/coverage-final.json
           fail_ci_if_error: true
 
-  # separate job to set as required in branch protection,
-  # as the build names above change each time Node versions change
+  sonarcloud:
+    name: SonarCloud
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@1b05615854632b887b69ae1be8cbefe72d3ae423 # v2.6.0
+        with:
+          egress-policy: audit
+
+      - name: Checkout code
+        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        with:
+          fetch-depth: 0
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@c25d2e7e3def96d0d1781000d3c429da22cd6252 # v2.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+  # separate job to set as required in branch protection, as the
+  # build names from test_matrix change each time Node versions change
   test:
     runs-on: ubuntu-latest
     needs:
       - test_matrix
+      - sonarcloud
     if: always()
     steps:
-      - name: All matrix versions passed
+      - name: All required jobs and matrix versions passed
         if: ${{ !(contains(needs.*.result, 'failure')) }}
         run: exit 0
-      - name: Some matrix version failed
+      - name: Some required jobs or matrix versions failed
         if: ${{ contains(needs.*.result, 'failure') }}
         run: exit 1
