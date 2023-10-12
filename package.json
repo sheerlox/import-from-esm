@@ -19,7 +19,10 @@
 	"scripts": {
 		"test": "c8 ava && tsd --files tests/**/*.test-d.ts",
 		"lint": "xo",
-		"lint:fix": "xo --fix"
+		"lint:fix": "xo --fix",
+		"fuzz": "jazzer --disable_bug_detectors=path-traversal tests/fuzzing/fuzz-target.cjs",
+		"fuzz:jest": "JAZZER_FUZZ=1 NODE_OPTIONS=--experimental-vm-modules jest tests/fuzzing/fuzz.test.js --watch",
+		"fuzz:jest:coverage": "NODE_OPTIONS=--experimental-vm-modules jest tests/fuzzing/fuzz.test.js --coverage"
 	},
 	"files": [
 		"index.js",
@@ -38,15 +41,25 @@
 	],
 	"devDependencies": {
 		"@insurgentlab/conventional-changelog-preset": "7.0.0",
+		"@jazzer.js/core": "^2.0.0",
+		"@jazzer.js/jest-runner": "^2.0.0",
 		"@semantic-release/changelog": "6.0.3",
 		"@semantic-release/git": "10.0.1",
 		"ava": "5.3.1",
 		"c8": "8.0.1",
+		"eslint-plugin-jest": "^27.4.2",
+		"jest": "^29.7.0",
 		"semantic-release": "22.0.5",
 		"tsd": "0.29.0",
 		"xo": "0.56.0"
 	},
 	"xo": {
+		"plugins": [
+			"jest"
+		],
+		"envs": [
+			"jest/globals"
+		],
 		"rules": {
 			"unicorn/no-await-expression-member": "off",
 			"object-curly-spacing": [
@@ -56,6 +69,11 @@
 		},
 		"ignores": [
 			"lib/"
+		]
+	},
+	"ava": {
+		"files": [
+			"!tests/fuzzing"
 		]
 	},
 	"c8": {
