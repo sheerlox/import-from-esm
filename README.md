@@ -1,10 +1,12 @@
 # import-from-esm
 
-[![Version](https://badgen.net/npm/v/import-from-esm?icon=npm)](https://badgen.net/npm/v/import-from-esm)
-[![Test](https://github.com/sheerlox/import-from-esm/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/sheerlox/import-from-esm/actions/workflows/test.yml)
-[![CodeQL](https://github.com/sheerlox/import-from-esm/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/sheerlox/import-from-esm/actions/workflows/codeql.yml)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=sheerlox_import-from-esm&metric=coverage)](https://sonarcloud.io/summary/new_code?id=sheerlox_import-from-esm)
-[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/sheerlox/import-from-esm/badge)](https://securityscorecards.dev/viewer/?uri=github.com/sheerlox/import-from-esm)
+[![Version](https://img.shields.io/npm/v/import-from-esm?logo=npm)](https://www.npmjs.com/package/import-from-esm)
+[![Test](https://img.shields.io/github/actions/workflow/status/sheerlox/import-from-esm/release.yml?logo=github)](https://github.com/sheerlox/import-from-esm/actions/workflows/release.yml)
+[![CodeQL](https://img.shields.io/github/actions/workflow/status/sheerlox/import-from-esm/codeql.yml?logo=github&label=CodeQL)](https://github.com/sheerlox/import-from-esm/actions/workflows/codeql.yml)
+[![Coverage](https://img.shields.io/sonar/coverage/sheerlox_import-from-esm?logo=sonarcloud&server=https%3A%2F%2Fsonarcloud.io)](https://sonarcloud.io/summary/overall?id=sheerlox_import-from-esm)
+[![OpenSSF Scorecard](https://img.shields.io/ossf-scorecard/github.com/sheerlox/import-from-esm?label=openssf%20scorecard)
+](https://securityscorecards.dev/viewer/?uri=github.com/sheerlox/import-from-esm)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
 ## Overview
 
