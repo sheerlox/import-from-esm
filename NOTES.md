@@ -9,7 +9,6 @@
 - the corpus for the Jest test is located in `.cifuzz-corpus/fuzz.test/importFrom/`, and crashes are located in `tests/fuzzing/fuzz.test/importFrom/`
 - using the `new FuzzedDataProvider(buffer).consumeString()` method seems more performant than `buffer.toString()` (~15%) (in standalone version, in Jest it's the opposite)
 
-### TODO
+### Solution
 
-- [ ] find a better way to split the buffer
-- [ ] generate better corpus to improve coverage
+Based on the above observations (difficulty, if not impossiblity, to implement fuzzing libraries for ESM packages) and choices made by [ossf/scorecard](https://github.com/ossf/scorecard), the "fuzzing" process is using the `fast-check` library.

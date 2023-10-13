@@ -17,7 +17,11 @@
 		"node": ">=16.20"
 	},
 	"scripts": {
-		"test": "c8 ava && tsd --files tests/**/*.test-d.ts",
+		"test": "c8 npm run test:all",
+		"test:all": "npm run test:ava && npm run test:fuzz && npm run test:tsd",
+		"test:ava": "ava tests/e2e.test.js",
+		"test:fuzz": "NODE_OPTIONS=--no-warnings ava tests/fuzz.test.js",
+		"test:tsd": "tsd --files tests/**/*.test-d.ts",
 		"lint": "xo",
 		"lint:fix": "xo --fix"
 	},
@@ -37,6 +41,7 @@
 		"path"
 	],
 	"devDependencies": {
+		"@fast-check/ava": "^1.1.6",
 		"@insurgentlab/conventional-changelog-preset": "7.0.0",
 		"@semantic-release/changelog": "6.0.3",
 		"@semantic-release/git": "10.0.1",
