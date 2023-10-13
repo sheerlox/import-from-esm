@@ -1,4 +1,0 @@
-{
-	"fuzzerOptions": [],
-	"disableBugDetectors": ["path-traversal"]
-}
