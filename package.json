@@ -41,7 +41,7 @@
 		"path"
 	],
 	"devDependencies": {
-		"@fast-check/ava": "^1.1.6",
+		"@fast-check/ava": "1.1.6",
 		"@insurgentlab/conventional-changelog-preset": "7.0.0",
 		"@semantic-release/changelog": "6.0.3",
 		"@semantic-release/git": "10.0.1",
