@@ -1,7 +1,3 @@
-// Hack while waiting for https://github.com/ossf/scorecard/issues/3567 to be resolved
-// eslint-disable-next-line no-unused-vars, import/order
-import _fc from 'fast-check';
-
 import { fc, testProp } from '@fast-check/ava';
 import importFrom from '../index.js';
 
