@@ -1,3 +1,38 @@
+## [1.0.2](https://github.com/sheerlox/import-from-esm/compare/v1.0.1...v1.0.2) (2023-10-21)
+
+
+### 🛠 Builds
+
+* configure and run knip ([0f38051](https://github.com/sheerlox/import-from-esm/commit/0f38051c0df9d8e5ca89cdd30e887d2eae18d581))
+
+
+### 📚 Documentation
+
+* add PURPOSE.md ([13e24f9](https://github.com/sheerlox/import-from-esm/commit/13e24f9ea908e9ef04fbda9030169bb52a88c1e0))
+
+
+### 🚨 Tests
+
+* add fuzz testing ([#18](https://github.com/sheerlox/import-from-esm/issues/18)) ([9abddb5](https://github.com/sheerlox/import-from-esm/commit/9abddb52bfa0562c14aa9e9c79ce749ef25dcc1a))
+
+
+### ⚙️ Continuous Integrations
+
+* **action:** enable ossf scorecard repo_token ([390edd7](https://github.com/sheerlox/import-from-esm/commit/390edd7b50a8a35a7e31f49de1dc8580019b5d8f))
+* **action:** update actions/checkout action to v4.1.1 ([#23](https://github.com/sheerlox/import-from-esm/issues/23)) ([fcdb52c](https://github.com/sheerlox/import-from-esm/commit/fcdb52ca4ab7d9ee7a20780e5a45feaa31a7e318))
+* **action:** update actions/checkout digest to b4ffde6 ([#24](https://github.com/sheerlox/import-from-esm/issues/24)) ([93c99ed](https://github.com/sheerlox/import-from-esm/commit/93c99eded8bd7930a1c0b971bf2496c3dfe22c62))
+* **action:** update github/codeql-action action to v2.22.2 ([#17](https://github.com/sheerlox/import-from-esm/issues/17)) ([7d49e7f](https://github.com/sheerlox/import-from-esm/commit/7d49e7f1306155725675538a1fc5c6892b5e88fe)), closes [#9](https://github.com/sheerlox/import-from-esm/issues/9)
+* **action:** update github/codeql-action action to v2.22.3 ([#20](https://github.com/sheerlox/import-from-esm/issues/20)) ([3611086](https://github.com/sheerlox/import-from-esm/commit/361108623b2b660004b97803f526cd2f42ce0100)), closes [#9](https://github.com/sheerlox/import-from-esm/issues/9)
+* **action:** update github/codeql-action action to v2.22.3 ([#21](https://github.com/sheerlox/import-from-esm/issues/21)) ([45faedc](https://github.com/sheerlox/import-from-esm/commit/45faedcd25a991bedc21ff3ff3a0f32ae3afd84e))
+* **action:** update github/codeql-action action to v2.22.4 ([#25](https://github.com/sheerlox/import-from-esm/issues/25)) ([fe13382](https://github.com/sheerlox/import-from-esm/commit/fe133828acdceabad0b72ceb32b991fc3d6e9e43))
+
+
+### ♻️ Chores
+
+* **deps:** lock file maintenance ([#22](https://github.com/sheerlox/import-from-esm/issues/22)) ([8d686b1](https://github.com/sheerlox/import-from-esm/commit/8d686b1ed5481ce7eff2ff4d986cb60a40bbe967))
+* **deps:** pin dependency [@fast-check](https://github.com/fast-check)/ava to 1.1.6 ([#19](https://github.com/sheerlox/import-from-esm/issues/19)) ([a82bbb2](https://github.com/sheerlox/import-from-esm/commit/a82bbb26d793cb638100226593d530205f77541e))
+* remove ossf scorecard fast-check detection hack ([ca95e03](https://github.com/sheerlox/import-from-esm/commit/ca95e0317a6dcd29d575d8e6003b698e4595e9bc))
+
 ## [1.0.1](https://github.com/sheerlox/import-from-esm/compare/v1.0.0...v1.0.1) (2023-10-12)
 
 
