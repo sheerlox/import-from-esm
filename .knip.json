@@ -1,0 +1,11 @@
+{
+	"entry": ["index.js!", "e2e.test.js", "fuzz.test.js", "index.test-d.ts"],
+	"project": ["lib/**/*.js!", "test/**/*.js"],
+	"ignoreDependencies": [
+		"@semantic-release/commit-analyzer",
+		"@semantic-release/github",
+		"@semantic-release/npm",
+		"@semantic-release/release-notes-generator",
+		"@insurgentlab/conventional-changelog-preset"
+	]
+}

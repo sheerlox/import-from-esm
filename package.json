@@ -17,11 +17,12 @@
 		"node": ">=16.20"
 	},
 	"scripts": {
-		"test": "c8 npm run test:all",
+		"test": "c8 npm run test:all && npm run knip",
 		"test:all": "npm run test:ava && npm run test:fuzz && npm run test:tsd",
 		"test:ava": "ava tests/e2e.test.js",
 		"test:fuzz": "NODE_OPTIONS=--no-warnings ava tests/fuzz.test.js",
 		"test:tsd": "tsd --files tests/**/*.test-d.ts",
+		"knip": "knip",
 		"lint": "xo",
 		"lint:fix": "xo --fix"
 	},
@@ -47,6 +48,7 @@
 		"@semantic-release/git": "10.0.1",
 		"ava": "5.3.1",
 		"c8": "8.0.1",
+		"knip": "2.35.0",
 		"semantic-release": "22.0.5",
 		"tsd": "0.29.0",
 		"xo": "0.56.0"
