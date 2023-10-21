@@ -1,6 +1,13 @@
 {
-	"entry": ["index.js!", "e2e.test.js", "fuzz.test.js", "index.test-d.ts"],
-	"project": ["lib/**/*.js!", "test/**/*.js"],
+	"$schema": "https://unpkg.com/knip@2/schema.json",
+	"entry": [
+		"index.js!",
+		"tests/e2e.test.js",
+		"tests/fuzz.test.js",
+		"tests/index.test-d.ts"
+	],
+	"project": ["lib/**/*.js!", "tests/**/*.js"],
+	"ignore": ["tests/fixture/**"],
 	"ignoreDependencies": [
 		"@semantic-release/commit-analyzer",
 		"@semantic-release/github",
