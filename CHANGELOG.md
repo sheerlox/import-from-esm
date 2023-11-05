@@ -1,3 +1,37 @@
+## [1.0.3](https://github.com/sheerlox/import-from-esm/compare/v1.0.2...v1.0.3) (2023-11-05)
+
+
+### 🐛 Bug Fixes
+
+* loading absolute path fails on windows ([4a0fbd0](https://github.com/sheerlox/import-from-esm/commit/4a0fbd0eb9b9b2789fcf61e5f0dcce8300e25f8f))
+
+
+### ⚙️ Continuous Integrations
+
+* **action:** also run tests on macos & windows ([df039b1](https://github.com/sheerlox/import-from-esm/commit/df039b182be5e5fc76a78f370b3d767c1ea3bcaa))
+* **action:** increase test workflow timeout ([f08a25f](https://github.com/sheerlox/import-from-esm/commit/f08a25f49cecdefd6f5ca86f1ed8d49cfe5dbce0))
+* **action:** update actions/setup-node action to v4 ([#29](https://github.com/sheerlox/import-from-esm/issues/29)) ([84c8f34](https://github.com/sheerlox/import-from-esm/commit/84c8f34a465dc1469069983b7f30b525aaa19b86))
+* **action:** update github/codeql-action action to v2.22.5 ([#30](https://github.com/sheerlox/import-from-esm/issues/30)) ([05ed346](https://github.com/sheerlox/import-from-esm/commit/05ed3466cd0ca6943427eb96d012cc2683ffc2ff))
+* **action:** update ossf/scorecard-action action to v2.3.1 ([#28](https://github.com/sheerlox/import-from-esm/issues/28)) ([a03e669](https://github.com/sheerlox/import-from-esm/commit/a03e669b214fc5d3f83cbb249d7fc226d16f78d5))
+* **action:** update workflows ([d1e7069](https://github.com/sheerlox/import-from-esm/commit/d1e7069d6d93beb719dc99a48fe223536c2617bb))
+* **action:** update workflows ([111c720](https://github.com/sheerlox/import-from-esm/commit/111c720a1b988c8065477a0d16e0494386597914))
+* **action:** whitelist npm signatures audit domain ([3fbe0e5](https://github.com/sheerlox/import-from-esm/commit/3fbe0e5fc51b20658f9fbfde087443045f62dba0))
+
+
+### ♻️ Chores
+
+* add cross-env ([f55d6db](https://github.com/sheerlox/import-from-esm/commit/f55d6db33a3773fb4bf305a9b94517af75c25604))
+* **deps:** lock file maintenance ([509865c](https://github.com/sheerlox/import-from-esm/commit/509865c2fcffb51d79010225139b7f97596c360c))
+* **deps:** lock file maintenance ([#26](https://github.com/sheerlox/import-from-esm/issues/26)) ([97d9103](https://github.com/sheerlox/import-from-esm/commit/97d910305a248e453b1eaa70257417c321e9ddd0))
+* **deps:** update dependency knip to v2.37.0 ([36967bc](https://github.com/sheerlox/import-from-esm/commit/36967bcf84dc37a4b06a3968dc4aff553ea55966))
+* **deps:** update dependency knip to v2.38.0 ([cdb528a](https://github.com/sheerlox/import-from-esm/commit/cdb528acc2bbe6e9f1e4354d412e0ef062a60f79))
+* **deps:** update dependency knip to v2.38.1 ([4a240f2](https://github.com/sheerlox/import-from-esm/commit/4a240f2dd716d35a282cb65633ac82aaf91b87f2))
+* **deps:** update dependency knip to v2.38.4 ([6b4e63f](https://github.com/sheerlox/import-from-esm/commit/6b4e63f668f9d2db39424746cacbac1f8c4973db))
+* **deps:** update dependency knip to v2.38.5 ([54f917b](https://github.com/sheerlox/import-from-esm/commit/54f917bf90e0677cce0e673741d09107b92e779e))
+* **deps:** update dependency knip to v2.38.6 ([4a1604c](https://github.com/sheerlox/import-from-esm/commit/4a1604c6fd05f7fa8731b51778d6c2439433d455))
+* **deps:** update dependency semantic-release to v22.0.6 ([b78f3aa](https://github.com/sheerlox/import-from-esm/commit/b78f3aaaf863f9252ea27385487f4765a9784da6))
+* fix knip config ([2f74381](https://github.com/sheerlox/import-from-esm/commit/2f743813c1d85869e770c87cf51bf41d7dba2fc5))
+
 ## [1.0.2](https://github.com/sheerlox/import-from-esm/compare/v1.0.1...v1.0.2) (2023-10-21)
 
 

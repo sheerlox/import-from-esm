@@ -1,6 +1,6 @@
 {
 	"name": "import-from-esm",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"main": "index.js",
 	"type": "module",
 	"description": "Import a module like with `require()` but from a given path (for ESM)",
