@@ -17,14 +17,16 @@
 		"node": ">=16.20"
 	},
 	"scripts": {
-		"test": "c8 npm run test:all && npm run knip",
-		"test:all": "npm run test:ava && npm run test:fuzz && npm run test:tsd",
-		"test:ava": "ava tests/e2e.test.js",
+		"test": "npm run test:all && npm run knip",
+		"test:all": "npm run test:ava && npm run test:nested && npm run test:fuzz && npm run test:tsd",
+		"test:ava": "c8 ava tests/e2e.test.js",
+		"test:nested": "cd tests/fixture/nested/ && npm test",
 		"test:fuzz": "cross-env NODE_OPTIONS=--no-warnings ava tests/fuzz.test.js",
 		"test:tsd": "tsd --files tests/**/*.test-d.ts",
 		"knip": "knip",
 		"lint": "xo",
-		"lint:fix": "xo --fix"
+		"lint:fix": "xo --fix",
+		"postinstall": "cd tests/fixture/nested/ && npm ci"
 	},
 	"files": [
 		"index.js",
@@ -43,6 +45,7 @@
 	],
 	"devDependencies": {
 		"@fast-check/ava": "1.1.6",
+		"@insurgent/export-map-test": "1.0.0",
 		"@insurgentlab/conventional-changelog-preset": "7.0.0",
 		"@semantic-release/changelog": "6.0.3",
 		"@semantic-release/git": "10.0.1",
@@ -75,9 +78,9 @@
 			"text",
 			"lcov"
 		],
-		"statements": 95,
-		"branches": 85,
+		"statements": 100,
+		"branches": 100,
 		"functions": 100,
-		"lines": 95
+		"lines": 100
 	}
 }

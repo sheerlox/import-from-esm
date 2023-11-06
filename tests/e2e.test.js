@@ -2,35 +2,20 @@
 
 import test from 'ava';
 import importFrom from '../index.js';
+import { testImportFromLocal, testImportFromPackage } from './test-helpers.js'; // eslint-disable-line ava/no-import-test-files
 
-const testImportFrom = async (t, dir, file, ext) => {
-	const extString = ext ? `.${ext}` : '';
-	const moduleId = `./${file}${extString}`;
-	const nonExistentModuleId = `./nonexistent${extString}`;
+test('local - CJS module in CJS folder - no extension', t => testImportFromLocal(t, importFrom, 'tests/fixture/commonjs', 'fixture-cjs', undefined));
+test('local - CJS module in CJS folder - .js extension', t => testImportFromLocal(t, importFrom, 'tests/fixture/commonjs', 'fixture-cjs', 'js'));
+test('local - CJS module in ESM folder - no extension', t => testImportFromLocal(t, importFrom, 'tests/fixture/module', 'fixture-cjs', undefined));
+test('local - CJS module in ESM folder - .cjs extension', t => testImportFromLocal(t, importFrom, 'tests/fixture/module', 'fixture-cjs', 'cjs'));
 
-	t.is(await importFrom(dir, moduleId), 'unicorn');
+test('local - ESM module in ESM folder - no extension', t => testImportFromLocal(t, importFrom, 'tests/fixture/module', 'fixture-esm', undefined));
+test('local - ESM module in ESM folder - .js extension', t => testImportFromLocal(t, importFrom, 'tests/fixture/module', 'fixture-esm', 'js'));
+test('local - ESM module in CJS folder - no extension', t => testImportFromLocal(t, importFrom, 'tests/fixture/commonjs', 'fixture-esm', undefined));
+test('local - ESM module in CJS folder - .mjs extension', t => testImportFromLocal(t, importFrom, 'tests/fixture/commonjs', 'fixture-esm', 'mjs'));
 
-	const moduleNotFoundError = await t.throwsAsync(importFrom(dir, nonExistentModuleId));
-	t.is(moduleNotFoundError.code, 'MODULE_NOT_FOUND');
-	t.regex(moduleNotFoundError.message, new RegExp(`^Cannot find module '${nonExistentModuleId}'`));
-};
-
-test('importFrom() (CJS module in CJS folder - no extension)', t => testImportFrom(t, 'tests/fixture/commonjs', 'fixture-cjs', undefined));
-test('importFrom() (CJS module in CJS folder - .js extension)', t => testImportFrom(t, 'tests/fixture/commonjs', 'fixture-cjs', 'js'));
-test('importFrom() (CJS module in ESM folder - no extension)', t => testImportFrom(t, 'tests/fixture/module', 'fixture-cjs', undefined));
-test('importFrom() (CJS module in ESM folder - .cjs extension)', t => testImportFrom(t, 'tests/fixture/module', 'fixture-cjs', 'cjs'));
-
-test('importFrom() (ESM module in ESM folder - no extension)', t => testImportFrom(t, 'tests/fixture/module', 'fixture-esm', undefined));
-test('importFrom() (ESM module in ESM folder - .js extension)', t => testImportFrom(t, 'tests/fixture/module', 'fixture-esm', 'js'));
-test('importFrom() (ESM module in CJS folder - no extension)', t => testImportFrom(t, 'tests/fixture/commonjs', 'fixture-esm', undefined));
-test('importFrom() (ESM module in CJS folder - .mjs extension)', t => testImportFrom(t, 'tests/fixture/commonjs', 'fixture-esm', 'mjs'));
-
-test('importFrom.silent() (CJS)', async t => {
-	t.is(await importFrom.silent('tests/fixture/module', './fixture-cjs.cjs'), 'unicorn');
-	t.is(await importFrom.silent('tests/fixture/module', './nonexistent'), undefined);
-});
-
-test('importFrom.silent() (ESM)', async t => {
-	t.is(await importFrom.silent('tests/fixture/module', './fixture-esm.js'), 'unicorn');
-	t.is(await importFrom.silent('tests/fixture/module', './nonexistent'), undefined);
-});
+test('package - main export', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/export-map-test', 'main'));
+test('package - simple export', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/export-map-test/simple', 'simple'));
+test('package - conditional export', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/export-map-test/conditional', 'conditional-import'));
+test('package - wildcard export', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/export-map-test/wildcard/js.js', 'wildcard-one'));
+test('package - extension wildcard export', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/export-map-test/wildcard-js/one', 'wildcardjs-one'));
