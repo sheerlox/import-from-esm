@@ -1,6 +1,8 @@
+import { moduleResolve } from 'import-meta-resolve';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { moduleResolve } from 'import-meta-resolve';
+
+const EXTENSIONS = ['.js', '.mjs', '.cjs'];
 
 function resolveToFileURL(...paths) {
 	return pathToFileURL(resolve(...paths));
@@ -27,9 +29,8 @@ async function importFrom(fromDirectory, moduleId) {
 
 		if (!loadedModule) {
 			// Try to resolve file path with added extensions
-			const extensions = ['.js', '.mjs', '.cjs'];
 
-			for (const ext of extensions) {
+			for (const ext of EXTENSIONS) {
 				// eslint-disable-next-line no-await-in-loop
 				loadedModule = await tryImport(`${localModulePath}${ext}`);
 				if (loadedModule) {
@@ -46,6 +47,23 @@ async function importFrom(fromDirectory, moduleId) {
 			const parentModulePath = resolveToFileURL(fromDirectory, 'noop.js');
 			loadedModule = await import(moduleResolve(moduleId, parentModulePath, new Set(['node', 'import'])));
 		} catch {}
+
+		// Support for extensionless subpath package access (not subpath exports)
+		if (!loadedModule && !moduleId.startsWith('#')) {
+			// Try to resolve file path with added extensions
+
+			for (const ext of EXTENSIONS) {
+				try {
+					const parentModulePath = resolveToFileURL(fromDirectory, 'noop.js');
+					// eslint-disable-next-line no-await-in-loop
+					loadedModule = await import(moduleResolve(`${moduleId}${ext}`, parentModulePath, new Set(['node', 'import'])));
+				} catch {}
+
+				if (loadedModule) {
+					break;
+				}
+			}
+		}
 	}
 
 	if (!loadedModule) {
