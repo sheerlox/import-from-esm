@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/sheerlox/import-from-esm/compare/v1.1.0...v1.1.1) (2023-11-06)
+
+
+### 🐛 Bug Fixes
+
+* remove postinstall script ([818c4d5](https://github.com/sheerlox/import-from-esm/commit/818c4d574e383da6c04785de80931f78b8b9cf00))
+
 ## [1.1.0](https://github.com/sheerlox/import-from-esm/compare/v1.0.3...v1.1.0) (2023-11-06)
 
 
