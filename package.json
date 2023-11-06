@@ -17,9 +17,9 @@
 		"node": ">=16.20"
 	},
 	"scripts": {
-		"test": "c8 npm run test:all && npm run knip",
+		"test": "npm run test:all && npm run knip",
 		"test:all": "npm run test:ava && npm run test:fuzz && npm run test:tsd",
-		"test:ava": "ava tests/e2e.test.js",
+		"test:ava": "c8 ava tests/e2e.test.js",
 		"test:fuzz": "cross-env NODE_OPTIONS=--no-warnings ava tests/fuzz.test.js",
 		"test:tsd": "tsd --files tests/**/*.test-d.ts",
 		"knip": "knip",
