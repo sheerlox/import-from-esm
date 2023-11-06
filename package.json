@@ -43,6 +43,9 @@
 		"import",
 		"path"
 	],
+	"dependencies": {
+		"import-meta-resolve": "^4.0.0"
+	},
 	"devDependencies": {
 		"@fast-check/ava": "1.1.6",
 		"@insurgent/export-map-test": "1.0.0",
