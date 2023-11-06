@@ -1,5 +1,8 @@
 {
 	"type": "module",
+	"imports": {
+		"#subpath-import": "./subpath-import.js"
+	},
 	"scripts": {
 		"test": "ava nested.test.js"
 	},

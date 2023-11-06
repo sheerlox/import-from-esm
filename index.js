@@ -1,6 +1,6 @@
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { packageResolve } from './lib/import-meta-resolve/resolve.js';
+import { moduleResolve } from 'import-meta-resolve';
 
 function resolveToFileURL(...paths) {
 	return pathToFileURL(resolve(...paths));
@@ -15,9 +15,11 @@ async function tryImport(moduleId) {
 async function importFrom(fromDirectory, moduleId) {
 	let loadedModule;
 
-	// https://nodejs.org/api/modules.html#file-modules
-	// if moduleId begins with '/', '../', or './'
 	if (/^(\/|\.\.\/|\.\/)/.test(moduleId)) {
+		// If moduleId begins with '/', '../', or './', try to
+		// resolve manually so we can support extensionless imports
+		// - https://nodejs.org/api/modules.html#file-modules
+
 		const localModulePath = resolveToFileURL(fromDirectory, moduleId);
 
 		// Try to resolve exact file path
@@ -35,14 +37,14 @@ async function importFrom(fromDirectory, moduleId) {
 				}
 			}
 		}
-	}
+	} else {
+		// Let `import-meta-resolve` deal with resolving packages & import maps
+		// - https://nodejs.org/api/modules.html#loading-from-node_modules-folders
+		// - https://nodejs.org/api/packages.html#subpath-imports
 
-	// https://nodejs.org/api/modules.html#loading-from-node_modules-folders
-	// try to resolve from built-in or npm modules
-	if (!loadedModule) {
 		try {
 			const parentModulePath = resolveToFileURL(fromDirectory, 'noop.js');
-			loadedModule = await import(packageResolve(moduleId, parentModulePath, new Set(['node', 'import'])));
+			loadedModule = await import(moduleResolve(moduleId, parentModulePath, new Set(['node', 'import'])));
 		} catch {}
 	}
 
