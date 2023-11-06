@@ -1,3 +1,27 @@
+## [1.1.0](https://github.com/sheerlox/import-from-esm/compare/v1.0.3...v1.1.0) (2023-11-06)
+
+
+### ✨ Features
+
+* support subpath imports ([#35](https://github.com/sheerlox/import-from-esm/issues/35)) ([fd5ef00](https://github.com/sheerlox/import-from-esm/commit/fd5ef00c6e2de6cfed464c820fb1f4d3eb286b98))
+
+
+### 🐛 Bug Fixes
+
+* support extensionless subpath package access ([5bb1b09](https://github.com/sheerlox/import-from-esm/commit/5bb1b0902ac513fb5ad725983744d2d0461eec8d))
+
+
+### 🚨 Tests
+
+* add package import test cases ([#34](https://github.com/sheerlox/import-from-esm/issues/34)) ([8d1fa2c](https://github.com/sheerlox/import-from-esm/commit/8d1fa2cf905c4eb321b84e0451c822747d2311b2))
+* resolve from nested package path ([836a148](https://github.com/sheerlox/import-from-esm/commit/836a148f0509bb864407875927cdbf56f15ef7b7))
+
+
+### ♻️ Chores
+
+* **deps:** lock file maintenance ([#33](https://github.com/sheerlox/import-from-esm/issues/33)) ([5bb144a](https://github.com/sheerlox/import-from-esm/commit/5bb144ac3b846ce63b4245db0b69f6812efc0b10))
+* **deps:** pin dependency cross-env to 7.0.3 ([#32](https://github.com/sheerlox/import-from-esm/issues/32)) ([33f281a](https://github.com/sheerlox/import-from-esm/commit/33f281aef00c9fe70c9293fdae7ea3cfe3bec75d))
+
 ## [1.0.3](https://github.com/sheerlox/import-from-esm/compare/v1.0.2...v1.0.3) (2023-11-05)
 
 
