@@ -26,7 +26,7 @@
 		"knip": "knip",
 		"lint": "xo",
 		"lint:fix": "xo --fix",
-		"postinstall": "cd tests/fixture/nested/ && npm install"
+		"postinstall": "cd tests/fixture/nested/ && npm ci"
 	},
 	"files": [
 		"index.js",
