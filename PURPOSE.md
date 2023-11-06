@@ -18,5 +18,5 @@ It's only breaking change from `import-from` should be adding an `await` in fron
 
 ### Resources
 
-- CommonJS module resolution strategy: https://nodejs.org/api/modules.html#all-together
-- https://www.npmjs.com/package/import-meta-resolve
+- CommonJS module resolution strategy: https://nodejs.org/docs/latest-v18.x/api/modules.html#all-together
+- ES module resolution strategy: https://nodejs.org/docs/latest-v18.x/api/esm.html#resolution-algorithm-specification
