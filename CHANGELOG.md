@@ -1,3 +1,20 @@
+## [1.1.2](https://github.com/sheerlox/import-from-esm/compare/v1.1.1...v1.1.2) (2023-11-06)
+
+
+### 📚 Documentation
+
+* **readme:** add known limitation disclaimer ([b8caf20](https://github.com/sheerlox/import-from-esm/commit/b8caf202d55216d6df49f38edf3c63b98659fd39))
+
+
+### ♻️ Chores
+
+* **deps:** lock file maintenance ([#37](https://github.com/sheerlox/import-from-esm/issues/37)) ([11a557f](https://github.com/sheerlox/import-from-esm/commit/11a557f1fed850e0450c8516ba5acb921bb146f8))
+
+
+### 💎 Styles
+
+* fix linting issues ([b73c0d7](https://github.com/sheerlox/import-from-esm/commit/b73c0d79ded984d48bbd6deaadf58660229df8f2))
+
 ## [1.1.1](https://github.com/sheerlox/import-from-esm/compare/v1.1.0...v1.1.1) (2023-11-06)
 
 
