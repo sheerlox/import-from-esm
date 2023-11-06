@@ -1,0 +1,9 @@
+{
+	"type": "module",
+	"scripts": {
+		"test": "ava nested.test.js"
+	},
+	"devDependencies": {
+		"ava": "5.3.1"
+	}
+}
