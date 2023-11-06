@@ -1,6 +1,7 @@
-import { moduleResolve } from 'import-meta-resolve';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
+
+import { moduleResolve } from 'import-meta-resolve';
 
 const EXTENSIONS = ['.js', '.mjs', '.cjs'];
 

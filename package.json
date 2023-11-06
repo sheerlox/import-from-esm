@@ -62,6 +62,7 @@
 	"xo": {
 		"rules": {
 			"unicorn/no-await-expression-member": "off",
+			"import/order": "off",
 			"object-curly-spacing": [
 				"error",
 				"always"
