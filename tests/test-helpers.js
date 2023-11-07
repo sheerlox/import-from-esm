@@ -1,12 +1,14 @@
 /* eslint-disable max-params */
+import { resolve } from 'node:path';
 
 export const testImportFromLocal = async (t, importFrom, dir, file, ext) => {
-	const leadingString = /^(\/|\.\.\/|\.\/|[a-zA-Z]:)/.test(file) ? '' : './';
 	const extString = ext ? `.${ext}` : '';
-	const moduleId = `${leadingString}${file}${extString}`;
+	const relativeModuleId = `./${file}${extString}`;
+	const absoluteModuleId = resolve(dir, `${file}${extString}`);
 	const nonExistentModuleId = `./nonexistent${extString}`;
 
-	t.is(await importFrom.silent(dir, moduleId), 'unicorn');
+	t.is(await importFrom.silent(dir, relativeModuleId), 'unicorn');
+	t.is(await importFrom.silent(dir, absoluteModuleId), 'unicorn');
 
 	const moduleNotFoundError = await t.throwsAsync(importFrom(dir, nonExistentModuleId));
 	t.is(moduleNotFoundError.code, 'MODULE_NOT_FOUND');
