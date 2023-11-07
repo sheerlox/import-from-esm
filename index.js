@@ -18,7 +18,7 @@ async function tryImport(moduleId) {
 async function importFrom(fromDirectory, moduleId) {
 	let loadedModule;
 
-	if (/^(\/|\.\.\/|\.\/)/.test(moduleId)) {
+	if (/^(\/|\.\.\/|\.\/|[a-zA-Z]:)/.test(moduleId)) {
 		// If moduleId begins with '/', '../', or './', try to
 		// resolve manually so we can support extensionless imports
 		// - https://nodejs.org/api/modules.html#file-modules
