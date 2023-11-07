@@ -1,8 +1,9 @@
 /* eslint-disable max-params */
 
 export const testImportFromLocal = async (t, importFrom, dir, file, ext) => {
+	const leadingString = /^(\/|\.\.\/|\.\/|[a-zA-Z]:)/.test(file) ? '' : './';
 	const extString = ext ? `.${ext}` : '';
-	const moduleId = `./${file}${extString}`;
+	const moduleId = `${leadingString}${file}${extString}`;
 	const nonExistentModuleId = `./nonexistent${extString}`;
 
 	t.is(await importFrom.silent(dir, moduleId), 'unicorn');
