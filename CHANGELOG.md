@@ -1,3 +1,15 @@
+## [1.1.3](https://github.com/sheerlox/import-from-esm/compare/v1.1.2...v1.1.3) (2023-11-07)
+
+
+### 🐛 Bug Fixes
+
+* support windows absolute paths ([#40](https://github.com/sheerlox/import-from-esm/issues/40)) ([13f9767](https://github.com/sheerlox/import-from-esm/commit/13f97672eb9d5c4f74b14e8dd77ea60506f5545f))
+
+
+### ♻️ Chores
+
+* **deps:** update dependency knip to v2.39.0 ([#39](https://github.com/sheerlox/import-from-esm/issues/39)) ([44f92c3](https://github.com/sheerlox/import-from-esm/commit/44f92c3726cad84430f65720efe8f6e527cd0662))
+
 ## [1.1.2](https://github.com/sheerlox/import-from-esm/compare/v1.1.1...v1.1.2) (2023-11-06)
 
 
