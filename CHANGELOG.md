@@ -1,3 +1,28 @@
+## [1.2.0](https://github.com/sheerlox/import-from-esm/compare/v1.1.3...v1.2.0) (2023-11-08)
+
+
+### ✨ Features
+
+* add JSON modules support ([#42](https://github.com/sheerlox/import-from-esm/issues/42)) ([832a6ba](https://github.com/sheerlox/import-from-esm/commit/832a6ba817f1b3817a488cb2767063dde3e4cea3))
+
+
+### 🚨 Tests
+
+* add fuzzing regression tests ([#43](https://github.com/sheerlox/import-from-esm/issues/43)) ([2866dbd](https://github.com/sheerlox/import-from-esm/commit/2866dbda7481d11079bea1613870e1b4a39f0175))
+* increase fuzz tests verbosity ([fea8573](https://github.com/sheerlox/import-from-esm/commit/fea85735a29edbac0b649afee6dfbd1042e81fa5))
+
+
+### ⚙️ Continuous Integrations
+
+* **action:** pin insurgent-lab/is-in-pr-action action to cae57fd ([#41](https://github.com/sheerlox/import-from-esm/issues/41)) ([29fbee7](https://github.com/sheerlox/import-from-esm/commit/29fbee73fea9a981975887503ccf1c86951313ab))
+* **action:** prevent duplicate checks on Renovate PRs ([ce97a59](https://github.com/sheerlox/import-from-esm/commit/ce97a59d514f15cb65647fa5da203c2160c34617))
+
+
+### ♻️ Chores
+
+* **deps:** update dependency semantic-release to v22.0.7 ([#38](https://github.com/sheerlox/import-from-esm/issues/38)) ([e46ca32](https://github.com/sheerlox/import-from-esm/commit/e46ca323189992ab949bd82f58e34451857bd7d9))
+* update "if file module" comment ([2fd56a9](https://github.com/sheerlox/import-from-esm/commit/2fd56a94a282947879d86449867533ba26a8a046))
+
 ## [1.1.3](https://github.com/sheerlox/import-from-esm/compare/v1.1.2...v1.1.3) (2023-11-07)
 
 
