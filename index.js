@@ -19,8 +19,8 @@ async function importFrom(fromDirectory, moduleId) {
 	let loadedModule;
 
 	if (/^(\/|\.\.\/|\.\/|[a-zA-Z]:)/.test(moduleId)) {
-		// If moduleId begins with '/', '../', or './', try to
-		// resolve manually so we can support extensionless imports
+		// If moduleId begins with '/', '../', './' or Windows path (e.g. "C:"),
+		// resolve manually (so we can support extensionless imports)
 		// - https://nodejs.org/api/modules.html#file-modules
 
 		const localModulePath = resolveToFileURL(fromDirectory, moduleId);
