@@ -7,7 +7,7 @@ export const testImportFromLocal = async (t, importFrom, dir, file, ext, expecte
 	const absoluteModuleId = resolve(dir, `${file}${extString}`);
 	const nonExistentModuleId = `./nonexistent${extString}`;
 
-	t.is(await importFrom.silent(dir, relativeModuleId), expected);
+	t.deepEqual(await importFrom.silent(dir, relativeModuleId), expected);
 	t.is(await importFrom.silent(dir, absoluteModuleId), expected);
 
 	const moduleNotFoundError = await t.throwsAsync(importFrom(dir, nonExistentModuleId));
@@ -20,7 +20,7 @@ export const testImportFromLocal = async (t, importFrom, dir, file, ext, expecte
 export const testImportFromPackage = async (t, importFrom, dir, packageName, expected) => {
 	const nonExistentPackageName = 'nonexistent-package';
 
-	t.is(await importFrom.silent(dir, packageName), expected);
+	t.deepEqual(await importFrom.silent(dir, packageName), expected);
 
 	const moduleNotFoundError = await t.throwsAsync(importFrom(dir, nonExistentPackageName));
 	t.is(moduleNotFoundError.code, 'MODULE_NOT_FOUND');

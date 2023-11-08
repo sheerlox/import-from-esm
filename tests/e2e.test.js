@@ -20,7 +20,7 @@ test('local - ESM module in CJS folder - .mjs extension', t => testImportFromLoc
 test('local - JSON files', async t => {
 	const JSON_DIR = 'tests/fixture/json';
 	const NON_EXISTENT_MODULE_ID = './nonexistent.json';
-	t.is(await importFrom.silent(JSON_DIR, './valid.json'), { ok: true });
+	t.deepEqual(await importFrom.silent(JSON_DIR, './valid.json'), { ok: true });
 	t.is(await importFrom.silent(JSON_DIR, './invalid.json'), undefined);
 
 	const moduleNotFoundError = await t.throwsAsync(importFrom(JSON_DIR, NON_EXISTENT_MODULE_ID));
