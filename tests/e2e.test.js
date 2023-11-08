@@ -2,7 +2,7 @@
 
 import test from 'ava';
 import importFrom from '../index.js';
-import { testImportFromLocal, testImportFromPackage } from './test-helpers.js'; // eslint-disable-line ava/no-import-test-files
+import { testImportFromLocal, testImportFromPackage } from './helpers/test.helpers.js';
 
 test('local - CJS module in CJS folder - no extension', t => testImportFromLocal(t, importFrom, 'tests/fixture/commonjs', 'fixture-cjs', undefined));
 test('local - CJS module in CJS folder - .js extension', t => testImportFromLocal(t, importFrom, 'tests/fixture/commonjs', 'fixture-cjs', 'js'));
