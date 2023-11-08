@@ -2,13 +2,24 @@ import importFrom from '../../index.js';
 
 export const fuzzImportFromESM = async (t, a, b) => {
 	t.timeout(60_000);
-	let result;
+	let result = false;
 
 	try {
 		const loaded = await importFrom(a, b);
 		result = Boolean(loaded);
+
+		if (!result) {
+			console.error(`Fuzzing test failed with inputs: ${JSON.stringify([a, b])}`);
+			console.error(`"loaded" type: ${typeof loaded}`);
+			console.error(`"loaded" value: ${JSON.stringify(loaded)}`);
+		}
 	} catch (error) {
-		result = error.code === 'MODULE_NOT_FOUND';
+		if (error.code === 'MODULE_NOT_FOUND') {
+			result = true;
+		} else {
+			console.error('Fuzzing test failed encountering error:');
+			console.error(error);
+		}
 	}
 
 	t.true(result);
