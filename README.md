@@ -16,8 +16,6 @@ This is the ESM version of the [`import-from`](https://github.com/sindresorhus/i
 
 This library intends to be an _almost_ drop-in replacement of sindresorhus/import-from (from which it is forked) that supports loading ESM & CJS modules like require() does.
 
-> **Known limitation:** this module cannot import JSON modules, because it would rely on the experimental [Import Attributes](https://nodejs.org/docs/latest-v18.x/api/esm.html#import-attributes) feature. If this is something you would like to see in this library, please open an issue and I'll release it on the `experimental` distribution channel.
-
 ## Install
 
 ```
