@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/sheerlox/import-from-esm/compare/v1.2.0...v1.2.1) (2023-11-09)
+
+
+### 📚 Documentation
+
+* **readme:** remove known limitation disclaimer ([c5d7bdd](https://github.com/sheerlox/import-from-esm/commit/c5d7bddcc4adfcc2fd2654f8a657fa54808c2c4b))
+
 ## [1.2.0](https://github.com/sheerlox/import-from-esm/compare/v1.1.3...v1.2.0) (2023-11-08)
 
 
