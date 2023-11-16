@@ -20,6 +20,7 @@ test('local - ESM module in CJS folder - .mjs extension', t => testImportFromLoc
 test('local - JSON files', async t => {
 	const JSON_DIR = 'tests/fixture/json';
 	const NON_EXISTENT_MODULE_ID = './nonexistent.json';
+	t.deepEqual(await importFrom.silent(JSON_DIR, './valid'), { ok: true });
 	t.deepEqual(await importFrom.silent(JSON_DIR, './valid.json'), { ok: true });
 	t.is(await importFrom.silent(JSON_DIR, './invalid.json'), undefined);
 
@@ -38,6 +39,5 @@ test('package - extension wildcard export', t => testImportFromPackage(t, import
 
 const testPackageJSON = JSON.parse(readFileSync(fileURLToPath(resolve('@insurgent/export-map-test/package.json', import.meta.url))));
 test('package - JSON file export', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/export-map-test/package.json', testPackageJSON));
-
-test('package - JSON index', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/json-index-test', { ok: true }));
-test('package - JSON main', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/json-main-test', { ok: true }));
+test('package - JSON index (no entrypoint)', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/json-index-test', { ok: true }));
+test('package - JSON main export', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/json-main-test', { ok: true }));
