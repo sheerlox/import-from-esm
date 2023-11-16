@@ -1,3 +1,18 @@
+## [1.2.2](https://github.com/sheerlox/import-from-esm/compare/v1.2.1...v1.2.2) (2023-11-16)
+
+
+### 🐛 Bug Fixes
+
+* **typescript:** use default export in declaration file ([#48](https://github.com/sheerlox/import-from-esm/issues/48)) ([2d0a397](https://github.com/sheerlox/import-from-esm/commit/2d0a397bc99fcc79db781d290e9d323b9773c478))
+
+
+### ♻️ Chores
+
+* **deps:** lock file maintenance ([b021df5](https://github.com/sheerlox/import-from-esm/commit/b021df58f2adbc0c4a463b71b6c9bb672e2c4ab2))
+* **deps:** lock file maintenance ([36d42e8](https://github.com/sheerlox/import-from-esm/commit/36d42e8729dbc30d4d2ccbfcaeccfd29b0cafa6b))
+* **deps:** update dependency knip to v2.40.2 ([#45](https://github.com/sheerlox/import-from-esm/issues/45)) ([1a5e32d](https://github.com/sheerlox/import-from-esm/commit/1a5e32d6c22d6dc8816618145e4c6de6fa995e4a))
+* **deps:** update dependency knip to v2.41.0 ([d3d8eab](https://github.com/sheerlox/import-from-esm/commit/d3d8eab57b8ef5e99633083ba81cf6b206522e29))
+
 ## [1.2.1](https://github.com/sheerlox/import-from-esm/compare/v1.2.0...v1.2.1) (2023-11-09)
 
 
