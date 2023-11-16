@@ -36,7 +36,7 @@ async function tryImport(fileURL) {
 		debug(`Trying to import '${fileURL.href}'${asJSON ? ' as JSON' : ''}`);
 		return asJSON ? require(filePath) : await import(fileURL);
 	} catch (error) {
-		debug(`Failed to determine file extension or import '${fileURL.href}': ${String(error)}`);
+		debug(`Failed to determine file extension or to import '${fileURL.href}': ${String(error)}`);
 		if (error instanceof SyntaxError) {
 			throw error;
 		}
