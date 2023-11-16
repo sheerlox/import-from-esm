@@ -8,27 +8,34 @@ import { moduleResolve } from 'import-meta-resolve';
 const debug = createDebug('import-from-esm');
 const require = createRequire(import.meta.url);
 
-const EXTENSIONS = ['.js', '.mjs', '.cjs'];
+const EXTENSIONS = ['.js', '.mjs', '.cjs', '.json'];
 
 function resolveToFileURL(...paths) {
 	return pathToFileURL(resolve(...paths));
 }
 
-function tryResolve(moduleId, base) {
-	debug(`Trying to resolve '${moduleId}' from '${base}'`);
+function tryResolve(moduleId, baseURL) {
+	debug(`Trying to resolve '${moduleId}' from '${baseURL.href}'`);
 	try {
-		return moduleResolve(moduleId, base, new Set(['node', 'import']));
+		return moduleResolve(moduleId, baseURL, new Set(['node', 'import']));
 	} catch (error) {
-		debug(`Failed to resolve '${moduleId}' from '${base}': ${String(error)}`);
+		debug(`Failed to resolve '${moduleId}' from '${baseURL.href}': ${String(error)}`);
 	}
 }
 
-async function tryImport(absolutePath, asJSON = false) {
-	debug(`Trying to import '${absolutePath}'${asJSON ? ' as JSON' : ''}`);
+async function tryImport(fileURL) {
+	if (!fileURL) {
+		return;
+	}
+
+	const filePath = fileURLToPath(fileURL);
+	const asJSON = extname(filePath) === '.json';
+
+	debug(`Trying to import '${fileURL.href}'${asJSON ? ' as JSON' : ''}`);
 	try {
-		return asJSON ? require(fileURLToPath(absolutePath)) : await import(absolutePath);
+		return asJSON ? require(filePath) : await import(fileURL);
 	} catch (error) {
-		debug(`Failed to import '${absolutePath}'${asJSON ? ' as JSON' : ''}: ${String(error)}`);
+		debug(`Failed to import '${fileURL.href}'${asJSON ? ' as JSON' : ''}: ${String(error)}`);
 		if (error instanceof SyntaxError) {
 			throw error;
 		}
@@ -40,8 +47,6 @@ async function importFrom(fromDirectory, moduleId) {
 
 	let loadedModule;
 
-	const isJSON = extname(moduleId) === '.json';
-
 	if (/^(\/|\.\.\/|\.\/|[a-zA-Z]:)/.test(moduleId)) {
 		// If moduleId begins with '/', '../', './' or Windows path (e.g. "C:"),
 		// resolve manually (so we can support extensionless imports)
@@ -51,9 +56,9 @@ async function importFrom(fromDirectory, moduleId) {
 		const localModulePath = resolveToFileURL(fromDirectory, moduleId);
 
 		// Try to resolve exact file path
-		loadedModule = await tryImport(localModulePath, isJSON);
+		loadedModule = await tryImport(localModulePath);
 
-		if (!loadedModule && !isJSON) {
+		if (!loadedModule && !EXTENSIONS.includes(extname(moduleId))) {
 			// Try to resolve file path with added extensions
 
 			for (const ext of EXTENSIONS) {
@@ -71,7 +76,7 @@ async function importFrom(fromDirectory, moduleId) {
 		debug(`'${moduleId}' is not a file module`);
 
 		const parentModulePath = resolveToFileURL(fromDirectory, 'noop.js');
-		loadedModule = await tryImport(tryResolve(moduleId, parentModulePath), isJSON);
+		loadedModule = await tryImport(tryResolve(moduleId, parentModulePath));
 
 		// Support for extensionless subpath package access (not subpath exports)
 		if (!loadedModule && !moduleId.startsWith('#')) {
@@ -79,7 +84,7 @@ async function importFrom(fromDirectory, moduleId) {
 
 			for (const ext of EXTENSIONS) {
 				// eslint-disable-next-line no-await-in-loop
-				loadedModule = await tryImport(tryResolve(`${moduleId}${ext}`, parentModulePath), isJSON);
+				loadedModule = await tryImport(tryResolve(`${moduleId}${ext}`, parentModulePath));
 
 				if (loadedModule) {
 					break;
@@ -94,7 +99,7 @@ async function importFrom(fromDirectory, moduleId) {
 		throw error;
 	}
 
-	return isJSON ? loadedModule : loadedModule.default;
+	return loadedModule.default ?? loadedModule;
 }
 
 importFrom.silent = async function (fromDirectory, moduleId) {
