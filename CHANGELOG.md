@@ -1,3 +1,16 @@
+## [1.3.0](https://github.com/sheerlox/import-from-esm/compare/v1.2.2...v1.3.0) (2023-11-16)
+
+
+### ✨ Features
+
+* support index, main and extensionless JSON modules ([#51](https://github.com/sheerlox/import-from-esm/issues/51)) ([f5486fd](https://github.com/sheerlox/import-from-esm/commit/f5486fd5f1f18dac5dfa8a18b175aced1e72710d))
+
+
+### 📦 Code Refactoring
+
+* add debug logging ([#50](https://github.com/sheerlox/import-from-esm/issues/50)) ([6228aaf](https://github.com/sheerlox/import-from-esm/commit/6228aaf4e32fb4daa0db85d628cc073c6742328c))
+* improve debug logging ([197acda](https://github.com/sheerlox/import-from-esm/commit/197acda60e4dfcf3cd32d0c84d31afdb7d2ad587))
+
 ## [1.2.2](https://github.com/sheerlox/import-from-esm/compare/v1.2.1...v1.2.2) (2023-11-16)
 
 
