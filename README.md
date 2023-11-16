@@ -12,9 +12,7 @@
 
 > Import a module like with [`require()`](https://nodejs.org/api/modules.html#modules_require_id) but from a given path (for ESM)
 
-This is the ESM version of the [`import-from`](https://github.com/sindresorhus/import-from), exposing the same API and behavior but supporting ESM modules. Just add `await` before `importFrom`/`importFrom.silent`
-
-This library intends to be an _almost_ drop-in replacement of sindresorhus/import-from (from which it is forked) that supports loading ESM & CJS modules like require() does.
+This library intends to be an _almost_ drop-in replacement of [`import-from`](https://github.com/sindresorhus/import-from) (from which it is forked), exposing the same API and behavior but also supporting ES modules (ESM). Just add `await` before `importFrom`/`importFrom.silent`
 
 ## Install
 
@@ -27,7 +25,7 @@ $ npm install import-from-esm
 ```js
 import importFrom from "import-from-esm";
 
-// there is a file at `./foo/bar.{js,mjs,cjs}`
+// there is a file at `./foo/bar.{js,mjs,cjs,json}`
 
 await importFrom("foo", "./bar");
 ```
