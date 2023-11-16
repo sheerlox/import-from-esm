@@ -38,3 +38,6 @@ test('package - extension wildcard export', t => testImportFromPackage(t, import
 
 const testPackageJSON = JSON.parse(readFileSync(fileURLToPath(resolve('@insurgent/export-map-test/package.json', import.meta.url))));
 test('package - JSON file export', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/export-map-test/package.json', testPackageJSON));
+
+test('package - JSON index', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/json-index-test', { ok: true }));
+test('package - JSON main', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/json-main-test', { ok: true }));
