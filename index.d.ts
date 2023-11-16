@@ -38,4 +38,4 @@ declare const importFrom: {
 	silent(fromDirectory: string, moduleId: string): unknown;
 };
 
-export = importFrom;
+export default importFrom;
