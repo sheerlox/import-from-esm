@@ -15,20 +15,20 @@ function resolveToFileURL(...paths) {
 }
 
 function tryResolve(moduleId, base) {
-	debug(`Trying to import.meta.resolve ${moduleId} from ${base}`);
+	debug(`Trying to resolve '${moduleId}' from '${base}'`);
 	try {
 		return moduleResolve(moduleId, base, new Set(['node', 'import']));
 	} catch (error) {
-		debug(`Failed to import.meta.resolve ${moduleId} from ${base}: ${String(error)}`);
+		debug(`Failed to resolve '${moduleId}' from '${base}': ${String(error)}`);
 	}
 }
 
 async function tryImport(absolutePath, asJSON = false) {
-	debug(`Trying to import ${absolutePath}${asJSON ? ' as JSON' : ''}`);
+	debug(`Trying to import '${absolutePath}'${asJSON ? ' as JSON' : ''}`);
 	try {
 		return asJSON ? require(fileURLToPath(absolutePath)) : await import(absolutePath);
 	} catch (error) {
-		debug(`Failed to import ${absolutePath}${asJSON ? ' as JSON' : ''}: ${String(error)}`);
+		debug(`Failed to import '${absolutePath}'${asJSON ? ' as JSON' : ''}: ${String(error)}`);
 		if (error instanceof SyntaxError) {
 			throw error;
 		}
@@ -36,7 +36,7 @@ async function tryImport(absolutePath, asJSON = false) {
 }
 
 async function importFrom(fromDirectory, moduleId) {
-	debug(`Executing importFrom(${fromDirectory}, ${moduleId})`);
+	debug(`Executing importFrom('${fromDirectory}', '${moduleId}')`);
 
 	let loadedModule;
 
@@ -46,7 +46,7 @@ async function importFrom(fromDirectory, moduleId) {
 		// If moduleId begins with '/', '../', './' or Windows path (e.g. "C:"),
 		// resolve manually (so we can support extensionless imports)
 		// - https://nodejs.org/api/modules.html#file-modules
-		debug(`${moduleId} is a file module`);
+		debug(`'${moduleId}' is a file module`);
 
 		const localModulePath = resolveToFileURL(fromDirectory, moduleId);
 
@@ -68,7 +68,7 @@ async function importFrom(fromDirectory, moduleId) {
 		// Let `import-meta-resolve` deal with resolving packages & import maps
 		// - https://nodejs.org/api/modules.html#loading-from-node_modules-folders
 		// - https://nodejs.org/api/packages.html#subpath-imports
-		debug(`${moduleId} is not a file module`);
+		debug(`'${moduleId}' is not a file module`);
 
 		const parentModulePath = resolveToFileURL(fromDirectory, 'noop.js');
 		loadedModule = await tryImport(tryResolve(moduleId, parentModulePath), isJSON);
