@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/sheerlox/import-from-esm/compare/v1.3.0...v1.3.1) (2023-11-16)
+
+
+### 📚 Documentation
+
+* **readme:** update overview and usage sections ([2d4ae40](https://github.com/sheerlox/import-from-esm/commit/2d4ae401db5ef6d0587d84eba5df5e3e17500e81))
+
 ## [1.3.0](https://github.com/sheerlox/import-from-esm/compare/v1.2.2...v1.3.0) (2023-11-16)
 
 
