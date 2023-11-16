@@ -2,8 +2,10 @@ import { createRequire } from 'node:module';
 import { extname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
+import createDebug from 'debug';
 import { moduleResolve } from 'import-meta-resolve';
 
+const debug = createDebug('import-from-esm');
 const require = createRequire(import.meta.url);
 
 const EXTENSIONS = ['.js', '.mjs', '.cjs'];
@@ -13,15 +15,20 @@ function resolveToFileURL(...paths) {
 }
 
 function tryResolve(moduleId, base) {
+	debug(`Trying to import.meta.resolve ${moduleId} from ${base}`);
 	try {
 		return moduleResolve(moduleId, base, new Set(['node', 'import']));
-	} catch {}
+	} catch (error) {
+		debug(`Failed to import.meta.resolve ${moduleId} from ${base}: ${String(error)}`);
+	}
 }
 
-async function tryImport(absolutePath, isJSON = false) {
+async function tryImport(absolutePath, asJSON = false) {
+	debug(`Trying to import ${absolutePath}${asJSON ? ' as JSON' : ''}`);
 	try {
-		return isJSON ? require(fileURLToPath(absolutePath)) : await import(absolutePath);
+		return asJSON ? require(fileURLToPath(absolutePath)) : await import(absolutePath);
 	} catch (error) {
+		debug(`Failed to import ${absolutePath}${asJSON ? ' as JSON' : ''}: ${String(error)}`);
 		if (error instanceof SyntaxError) {
 			throw error;
 		}
@@ -29,6 +36,8 @@ async function tryImport(absolutePath, isJSON = false) {
 }
 
 async function importFrom(fromDirectory, moduleId) {
+	debug(`Executing importFrom(${fromDirectory}, ${moduleId})`);
+
 	let loadedModule;
 
 	const isJSON = extname(moduleId) === '.json';
@@ -37,6 +46,7 @@ async function importFrom(fromDirectory, moduleId) {
 		// If moduleId begins with '/', '../', './' or Windows path (e.g. "C:"),
 		// resolve manually (so we can support extensionless imports)
 		// - https://nodejs.org/api/modules.html#file-modules
+		debug(`${moduleId} is a file module`);
 
 		const localModulePath = resolveToFileURL(fromDirectory, moduleId);
 
@@ -58,6 +68,7 @@ async function importFrom(fromDirectory, moduleId) {
 		// Let `import-meta-resolve` deal with resolving packages & import maps
 		// - https://nodejs.org/api/modules.html#loading-from-node_modules-folders
 		// - https://nodejs.org/api/packages.html#subpath-imports
+		debug(`${moduleId} is not a file module`);
 
 		const parentModulePath = resolveToFileURL(fromDirectory, 'noop.js');
 		loadedModule = await tryImport(tryResolve(moduleId, parentModulePath), isJSON);
