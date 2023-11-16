@@ -28,14 +28,15 @@ async function tryImport(fileURL) {
 		return;
 	}
 
-	const filePath = fileURLToPath(fileURL);
-	const asJSON = extname(filePath) === '.json';
-
-	debug(`Trying to import '${fileURL.href}'${asJSON ? ' as JSON' : ''}`);
 	try {
+		debug(`Trying to determine file extension for '${fileURL.href}'`);
+		const filePath = fileURLToPath(fileURL);
+		const asJSON = extname(filePath) === '.json';
+
+		debug(`Trying to import '${fileURL.href}'${asJSON ? ' as JSON' : ''}`);
 		return asJSON ? require(filePath) : await import(fileURL);
 	} catch (error) {
-		debug(`Failed to import '${fileURL.href}'${asJSON ? ' as JSON' : ''}: ${String(error)}`);
+		debug(`Failed to determine file extension or import '${fileURL.href}': ${String(error)}`);
 		if (error instanceof SyntaxError) {
 			throw error;
 		}
@@ -94,10 +95,14 @@ async function importFrom(fromDirectory, moduleId) {
 	}
 
 	if (!loadedModule) {
-		const error = new Error(`Cannot find module '${moduleId}'`);
+		const errorString = `Cannot find module '${moduleId}'`;
+		debug(errorString);
+		const error = new Error(errorString);
 		error.code = 'MODULE_NOT_FOUND';
 		throw error;
 	}
+
+	debug(`Successfully loaded module '${moduleId}' from '${fromDirectory}'`);
 
 	return loadedModule.default ?? loadedModule;
 }
