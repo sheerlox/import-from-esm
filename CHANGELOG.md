@@ -1,3 +1,15 @@
+## [1.3.3](https://github.com/sheerlox/import-from-esm/compare/v1.3.2...v1.3.3) (2023-11-19)
+
+
+### 🐛 Bug Fixes
+
+* set Promise return types in declaration file ([6ca7d3c](https://github.com/sheerlox/import-from-esm/commit/6ca7d3c9a96a05ed1e7d8c1a639f099f799a3838))
+
+
+### 🚨 Tests
+
+* improve test coverage ([8fa4f05](https://github.com/sheerlox/import-from-esm/commit/8fa4f0541426f9f4621dae92bb6fb6a4252b8d25))
+
 ## [1.3.2](https://github.com/sheerlox/import-from-esm/compare/v1.3.1...v1.3.2) (2023-11-19)
 
 
