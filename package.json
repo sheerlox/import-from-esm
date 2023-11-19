@@ -47,7 +47,7 @@
 	},
 	"devDependencies": {
 		"@fast-check/ava": "1.1.6",
-		"@insurgent/export-map-test": "1.0.0",
+		"@insurgent/export-map-test": "1.0.1",
 		"@insurgent/json-index-test": "2.0.0",
 		"@insurgent/json-main-test": "2.0.0",
 		"@insurgentlab/conventional-changelog-preset": "7.0.0",
