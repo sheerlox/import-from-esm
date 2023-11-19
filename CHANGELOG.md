@@ -1,3 +1,28 @@
+## [1.3.2](https://github.com/sheerlox/import-from-esm/compare/v1.3.1...v1.3.2) (2023-11-19)
+
+
+### 🛠 Builds
+
+* **npm:** update keywords and description ([35e2aaa](https://github.com/sheerlox/import-from-esm/commit/35e2aaa288fe946a7cc1681f376d6301dbde3810))
+
+
+### 📚 Documentation
+
+* **readme:** add motivation section ([302732f](https://github.com/sheerlox/import-from-esm/commit/302732fd2f7599079257b2b8e6cae90bd6d83134))
+
+
+### ⚙️ Continuous Integrations
+
+* **action:** update github/codeql-action action to v2.22.7 ([#47](https://github.com/sheerlox/import-from-esm/issues/47)) ([22f4d00](https://github.com/sheerlox/import-from-esm/commit/22f4d0007df8710d7ed9221a9be55bbefc968822))
+* **action:** update insurgent-lab/is-in-pr-action action to v0.1.4 ([#56](https://github.com/sheerlox/import-from-esm/issues/56)) ([f7e4812](https://github.com/sheerlox/import-from-esm/commit/f7e4812a4f9697143ffb788990672b69dbe880c9))
+* **action:** update step-security/harden-runner action to v2.6.1 ([#54](https://github.com/sheerlox/import-from-esm/issues/54)) ([40b0da8](https://github.com/sheerlox/import-from-esm/commit/40b0da8d288332e27427c84ae92d8d45fe2c2e76))
+
+
+### ♻️ Chores
+
+* **deps:** pin dependency [@types](https://github.com/types)/debug to 4.1.12 ([#53](https://github.com/sheerlox/import-from-esm/issues/53)) ([65482cd](https://github.com/sheerlox/import-from-esm/commit/65482cdc751b6206eede214f166e0dfa956bc26a))
+* **deps:** update dependency knip to v2.41.2 ([#55](https://github.com/sheerlox/import-from-esm/issues/55)) ([3dc7e52](https://github.com/sheerlox/import-from-esm/commit/3dc7e52ea83acff2cbf9f1dd6d024ebb579c30ee))
+
 ## [1.3.1](https://github.com/sheerlox/import-from-esm/compare/v1.3.0...v1.3.1) (2023-11-16)
 
 
