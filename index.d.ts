@@ -18,7 +18,7 @@ declare const importFrom: {
 	}
 	```
 	*/
-	(fromDirectory: string, moduleId: string): unknown;
+	(fromDirectory: string, moduleId: string): Promise<unknown>;
 
 	/**
 	Import a module like with [`require()`](https://nodejs.org/api/modules.html#modules_require_id) but from a given path.
@@ -35,7 +35,7 @@ declare const importFrom: {
 	// Do something with `bar`, may be `undefined` when `./bar` can't be found
 	```
 	*/
-	silent(fromDirectory: string, moduleId: string): unknown;
+	silent(fromDirectory: string, moduleId: string): Promise<unknown>;
 };
 
 export default importFrom;
