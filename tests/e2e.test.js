@@ -25,19 +25,22 @@ test('local - JSON files', async t => {
 	t.is(await importFrom.silent(JSON_DIR, './invalid.json'), undefined);
 
 	const moduleNotFoundError = await t.throwsAsync(importFrom(JSON_DIR, NON_EXISTENT_MODULE_ID));
-	t.is(moduleNotFoundError.code, 'MODULE_NOT_FOUND');
-	t.regex(moduleNotFoundError.message, new RegExp(`^Cannot find module '${NON_EXISTENT_MODULE_ID}'`));
+	t.is(moduleNotFoundError?.code, 'MODULE_NOT_FOUND');
+	t.regex(moduleNotFoundError?.message, new RegExp(`^Cannot find module '${NON_EXISTENT_MODULE_ID}'`));
 
 	t.is(await importFrom.silent(JSON_DIR, NON_EXISTENT_MODULE_ID), undefined);
 });
 
-test('package - main export', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/export-map-test', 'main'));
-test('package - simple export', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/export-map-test/simple', 'simple'));
-test('package - conditional export', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/export-map-test/conditional', 'conditional-import'));
-test('package - wildcard export', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/export-map-test/wildcard/js.js', 'wildcard-one'));
-test('package - extension wildcard export', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/export-map-test/wildcard-js/one', 'wildcardjs-one'));
+test('package - subpath export - main', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/export-map-test', 'main'));
+test('package - subpath export - simple', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/export-map-test/simple', 'simple'));
+test('package - subpath export - conditional', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/export-map-test/conditional', 'conditional-import'));
+test('package - subpath export - wildcard', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/export-map-test/wildcard/js.js', 'wildcard-one'));
+test('package - subpath export - extension wildcard', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/export-map-test/wildcard-js/one', 'wildcardjs-one'));
 
-const testPackageJSON = JSON.parse(readFileSync(fileURLToPath(resolve('@insurgent/export-map-test/package.json', import.meta.url))));
-test('package - JSON file export', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/export-map-test/package.json', testPackageJSON));
-test('package - JSON index (no entrypoint)', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/json-index-test', { ok: true }));
-test('package - JSON main export', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/json-main-test', { ok: true }));
+const testPackageJSON = JSON.parse(readFileSync(fileURLToPath(resolve('@insurgent/export-map-test/package.json', import.meta.url)), { encoding: 'utf8' }));
+test('package - subpath export - JSON file', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/export-map-test/package.json', testPackageJSON));
+test('package - JSON index (no entrypoint)', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/json-index-test', { index: true }));
+test('package - JSON main export', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/json-main-test', { main: true }));
+
+test('package - subpath - extensioned', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/json-main-test/subpath.json', { subpath: true }));
+test('package - subpath - extensionless', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/json-index-test/subpath', { subpath: true }));

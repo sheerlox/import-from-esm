@@ -79,7 +79,7 @@ async function importFrom(fromDirectory, moduleId) {
 		const parentModulePath = resolveToFileURL(fromDirectory, 'noop.js');
 		loadedModule = await tryImport(tryResolve(moduleId, parentModulePath));
 
-		// Support for extensionless subpath package access (not subpath exports)
+		// Support for extensionless subpaths (not subpath exports)
 		if (!loadedModule && !moduleId.startsWith('#')) {
 			// Try to resolve file path with added extensions
 
