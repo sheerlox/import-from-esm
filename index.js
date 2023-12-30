@@ -16,11 +16,7 @@ function resolveToFileURL(...paths) {
 
 function tryResolve(moduleId, baseURL) {
 	debug(`Trying to resolve '${moduleId}' from '${baseURL.href}'`);
-	try {
-		return moduleResolve(moduleId, baseURL, new Set(['node', 'import']));
-	} catch (error) {
-		debug(`Failed to resolve '${moduleId}' from '${baseURL.href}': ${String(error)}`);
-	}
+	return import.meta.resolve(moduleId, baseURL.href);
 }
 
 async function tryImport(fileURL) {
