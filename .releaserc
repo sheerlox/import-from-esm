@@ -1,7 +1,11 @@
 {
 	"repositoryUrl": "git@github.com:sheerlox/import-from-esm.git",
 	"branches": [
-		"main"
+		"main",
+		{
+			"name": "alpha",
+			"prerelease": true
+		}
 	],
 	"tagFormat": "v${version}",
 	"plugins": [
