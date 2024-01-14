@@ -3,7 +3,6 @@ import { extname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import createDebug from 'debug';
-import { moduleResolve } from 'import-meta-resolve';
 
 const debug = createDebug('import-from-esm');
 const require = createRequire(import.meta.url);
@@ -32,7 +31,11 @@ async function tryImport(fileURL) {
 		debug(`Trying to import '${fileURL.href}'${asJSON ? ' as JSON' : ''}`);
 		return asJSON ? require(filePath) : await import(fileURL);
 	} catch (error) {
-		debug(`Failed to determine file extension or to import '${fileURL.href}': ${String(error)}`);
+		debug(
+			`Failed to determine file extension or to import '${
+				fileURL.href
+			}': ${String(error)}`,
+		);
 		if (error instanceof SyntaxError) {
 			throw error;
 		}
@@ -81,7 +84,9 @@ async function importFrom(fromDirectory, moduleId) {
 
 			for (const ext of EXTENSIONS) {
 				// eslint-disable-next-line no-await-in-loop
-				loadedModule = await tryImport(tryResolve(`${moduleId}${ext}`, parentModulePath));
+				loadedModule = await tryImport(
+					tryResolve(`${moduleId}${ext}`, parentModulePath),
+				);
 
 				if (loadedModule) {
 					break;
