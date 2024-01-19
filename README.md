@@ -8,6 +8,9 @@
 [![OpenSSF Scorecard](https://img.shields.io/ossf-scorecard/github.com/sheerlox/import-from-esm?label=openssf%20scorecard)
 ](https://securityscorecards.dev/viewer/?uri=github.com/sheerlox/import-from-esm)
 
+> [!CAUTION]
+> In this alpha version, we are using the built-in `import.meta.resolve` function. It is still behind an experimental flag until Node v20.6.0, and as of v21.6.0, its `parentURL` parameter is still flagged. Hence, for this version of the library to work correctly, you _must_ run Node with the `--experimental-import-meta-resolve` flag.
+
 ## Overview
 
 > Import a module like with [`require()`](https://nodejs.org/api/modules.html#modules_require_id) but from a given path (for ESM)
