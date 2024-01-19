@@ -42,8 +42,7 @@
 		"esm"
 	],
 	"dependencies": {
-		"debug": "^4.3.4",
-		"import-meta-resolve": "^4.0.0"
+		"debug": "^4.3.4"
 	},
 	"devDependencies": {
 		"@fast-check/ava": "1.2.1",

@@ -1,7 +1,6 @@
 /* eslint-disable ava/no-inline-assertions */
 
 import test from 'ava';
-import { resolve } from 'import-meta-resolve';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import importFrom from '../index.js';
@@ -37,7 +36,7 @@ test('package - subpath export - conditional', t => testImportFromPackage(t, imp
 test('package - subpath export - wildcard', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/export-map-test/wildcard/js.js', 'wildcard-one'));
 test('package - subpath export - extension wildcard', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/export-map-test/wildcard-js/one', 'wildcardjs-one'));
 
-const testPackageJSON = JSON.parse(readFileSync(fileURLToPath(resolve('@insurgent/export-map-test/package.json', import.meta.url)), { encoding: 'utf8' }));
+const testPackageJSON = JSON.parse(readFileSync(fileURLToPath(await import.meta.resolve('@insurgent/export-map-test/package.json', import.meta.url)), { encoding: 'utf8' }));
 test('package - subpath export - JSON file', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/export-map-test/package.json', testPackageJSON));
 test('package - JSON index (no entrypoint)', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/json-index-test', { index: true }));
 test('package - JSON main export', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/json-main-test', { main: true }));
