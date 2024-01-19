@@ -1,3 +1,80 @@
+## [1.4.0-alpha.1](https://github.com/sheerlox/import-from-esm/compare/v1.3.3...v1.4.0-alpha.1) (2024-01-19)
+
+
+### ✨ Features
+
+* use built-in `import.meta.resolve` function ([#81](https://github.com/sheerlox/import-from-esm/issues/81)) ([5d3b326](https://github.com/sheerlox/import-from-esm/commit/5d3b32601c65f9ffdd0d5df4ec842829cc8e90be))
+
+
+### 🚨 Tests
+
+* re-enable 100% coverage threshold ([ec9280d](https://github.com/sheerlox/import-from-esm/commit/ec9280d0675efe9efb9ecdc88945446389706517))
+
+
+### ⚙️ Continuous Integrations
+
+* **action:** update actions/download-artifact action to v4 ([#70](https://github.com/sheerlox/import-from-esm/issues/70)) ([74c3833](https://github.com/sheerlox/import-from-esm/commit/74c3833078beb4eb28cdc55dfeab7ffb44f6ab97))
+* **action:** update actions/upload-artifact action to v4 ([#71](https://github.com/sheerlox/import-from-esm/issues/71)) ([bec5974](https://github.com/sheerlox/import-from-esm/commit/bec597423b2f5f033c41d9eb2efe6188a8ade4b5))
+* **action:** update github/codeql-action action to v2.22.11 ([#65](https://github.com/sheerlox/import-from-esm/issues/65)) ([e484313](https://github.com/sheerlox/import-from-esm/commit/e48431336ea9d3beb27c11f058f848d046f8533d))
+* **action:** update github/codeql-action action to v2.22.8 ([#59](https://github.com/sheerlox/import-from-esm/issues/59)) ([6da3637](https://github.com/sheerlox/import-from-esm/commit/6da36372fff182b5332110d799b7e25278529520))
+* **action:** update github/codeql-action action to v3 ([#72](https://github.com/sheerlox/import-from-esm/issues/72)) ([6d6c2ff](https://github.com/sheerlox/import-from-esm/commit/6d6c2ffc4eb7540a521156b5a1260cf4ec4e951f))
+* **action:** update insurgent-lab/is-in-pr-action action to v0.1.5 ([#60](https://github.com/sheerlox/import-from-esm/issues/60)) ([66c27c6](https://github.com/sheerlox/import-from-esm/commit/66c27c6ea07030c143b352f5a2de8a5c11de4fd7))
+* **action:** update sonarsource/sonarcloud-github-action action to v2.1.1 ([#68](https://github.com/sheerlox/import-from-esm/issues/68)) ([0b9df9f](https://github.com/sheerlox/import-from-esm/commit/0b9df9f41e1d59133b63410fe87a033086bcd120))
+* add alpha branch to workfows ([2b6df31](https://github.com/sheerlox/import-from-esm/commit/2b6df317ff12c40857b457f9995869e66e892c96))
+* allow egress to nodejs.org ([f6ffcc4](https://github.com/sheerlox/import-from-esm/commit/f6ffcc4276468547af0fc1d4090c81a800efcfdf))
+* setup release on branch "alpha" ([a05592d](https://github.com/sheerlox/import-from-esm/commit/a05592d8ec6e1338b8fedf8acd59103aee7e5f70))
+
+
+### ♻️ Chores
+
+* **deps:** lock file maintenance ([04d0591](https://github.com/sheerlox/import-from-esm/commit/04d059120ccfeca753c4134caf663771624f3ef8))
+* **deps:** lock file maintenance ([b41156b](https://github.com/sheerlox/import-from-esm/commit/b41156b2434171f7b96e3e4ceda92e18c9699452))
+* **deps:** lock file maintenance ([9055fb5](https://github.com/sheerlox/import-from-esm/commit/9055fb555936cc71a3e2d93fd186c69c30cc5427))
+* **deps:** lock file maintenance ([1ecdca8](https://github.com/sheerlox/import-from-esm/commit/1ecdca83ee46d4266703624b045e1ce825652150))
+* **deps:** lock file maintenance ([b6f76f8](https://github.com/sheerlox/import-from-esm/commit/b6f76f8976730a197cb16082c2abdf12f1933e18))
+* **deps:** lock file maintenance ([3535b80](https://github.com/sheerlox/import-from-esm/commit/3535b80fac2896e15ad6e2ecd42ccd8f355c34d6))
+* **deps:** lock file maintenance ([#62](https://github.com/sheerlox/import-from-esm/issues/62)) ([ab31bce](https://github.com/sheerlox/import-from-esm/commit/ab31bcea1f717fa22248aad0d15af46c74d4e33c))
+* **deps:** lock file maintenance ([#69](https://github.com/sheerlox/import-from-esm/issues/69)) ([bfcc047](https://github.com/sheerlox/import-from-esm/commit/bfcc04736e8678764c401e884e55220ccaa352a5))
+* **deps:** lock file maintenance ([#75](https://github.com/sheerlox/import-from-esm/issues/75)) ([6ee8872](https://github.com/sheerlox/import-from-esm/commit/6ee8872f25f3a49055a1ee28c939a3760dad597e))
+* **deps:** update dependency [@fast-check](https://github.com/fast-check)/ava to v1.2.0 ([6119885](https://github.com/sheerlox/import-from-esm/commit/611988561757fe937db31c67a0dd8d1d8a9e9b19))
+* **deps:** update dependency [@fast-check](https://github.com/fast-check)/ava to v1.2.1 ([#78](https://github.com/sheerlox/import-from-esm/issues/78)) ([01800ce](https://github.com/sheerlox/import-from-esm/commit/01800cea54345cfb3bf5448cb778df851261b10e))
+* **deps:** update dependency [@insurgent](https://github.com/insurgent)/export-map-test to v1.0.1 ([20c1240](https://github.com/sheerlox/import-from-esm/commit/20c1240184010319d3d6c9ad70afcd1a793ee0c5))
+* **deps:** update dependency knip to v2.41.3 ([#57](https://github.com/sheerlox/import-from-esm/issues/57)) ([595c796](https://github.com/sheerlox/import-from-esm/commit/595c796d8885c6af215569cc12d4f92806a3c234))
+* **deps:** update dependency knip to v2.41.5 ([#61](https://github.com/sheerlox/import-from-esm/issues/61)) ([a49d8a0](https://github.com/sheerlox/import-from-esm/commit/a49d8a0a6d34c5053fc4faff0e68142423bb98ed))
+* **deps:** update dependency knip to v2.41.6 ([47265d7](https://github.com/sheerlox/import-from-esm/commit/47265d7d3268a697b99d343fc5eeb8194dcf07df))
+* **deps:** update dependency knip to v2.42.0 ([474df64](https://github.com/sheerlox/import-from-esm/commit/474df647048480505e65e78ac94489930abfb1ee))
+* **deps:** update dependency knip to v2.43.0 ([2651797](https://github.com/sheerlox/import-from-esm/commit/26517975b7315efb0810083ca322f60e12bf8fc9))
+* **deps:** update dependency knip to v3 ([#63](https://github.com/sheerlox/import-from-esm/issues/63)) ([e233c72](https://github.com/sheerlox/import-from-esm/commit/e233c724204c1b17389a1bed773fd47914c40d5a))
+* **deps:** update dependency knip to v3.10.0 ([0092258](https://github.com/sheerlox/import-from-esm/commit/00922582bd1a457cddb2f935849335b304793fa8))
+* **deps:** update dependency knip to v3.12.0 ([#83](https://github.com/sheerlox/import-from-esm/issues/83)) ([6a7b5fe](https://github.com/sheerlox/import-from-esm/commit/6a7b5fef1305393d342cf1805358c9bdd7fd7cb5))
+* **deps:** update dependency knip to v3.13.0 ([4629d01](https://github.com/sheerlox/import-from-esm/commit/4629d014b4f34e93a8e9012d295283cb9a4b88ba))
+* **deps:** update dependency knip to v3.13.1 ([5a21529](https://github.com/sheerlox/import-from-esm/commit/5a21529b7306548902ecfc6e93adc41ad39e8c15))
+* **deps:** update dependency knip to v3.13.2 ([b666148](https://github.com/sheerlox/import-from-esm/commit/b66614853b3d9b1069aa07869978c327c3b54163))
+* **deps:** update dependency knip to v3.3.0 ([5591445](https://github.com/sheerlox/import-from-esm/commit/5591445621e286093db78570d5a024760aec4b05))
+* **deps:** update dependency knip to v3.3.2 ([b2590a3](https://github.com/sheerlox/import-from-esm/commit/b2590a3c7fa2b3f0693869dd95ffb7392999c52e))
+* **deps:** update dependency knip to v3.3.5 ([#64](https://github.com/sheerlox/import-from-esm/issues/64)) ([82310f7](https://github.com/sheerlox/import-from-esm/commit/82310f752c1c5243899e37f810fd613829ee0b11))
+* **deps:** update dependency knip to v3.4.0 ([751e794](https://github.com/sheerlox/import-from-esm/commit/751e7945cfe89358c1b753fb9b4161861140d08c))
+* **deps:** update dependency knip to v3.5.0 ([d224fcc](https://github.com/sheerlox/import-from-esm/commit/d224fcc92e3689a37203f8a244a444fa364a25ea))
+* **deps:** update dependency knip to v3.5.1 ([eb85c5e](https://github.com/sheerlox/import-from-esm/commit/eb85c5efe835dc87ff7a53580bde54e42e1bc927))
+* **deps:** update dependency knip to v3.6.0 ([3cd5d1d](https://github.com/sheerlox/import-from-esm/commit/3cd5d1d58a4234aed5e30319912a7ae1c5f57b76))
+* **deps:** update dependency knip to v3.6.1 ([d474580](https://github.com/sheerlox/import-from-esm/commit/d474580d0e54f699dacc5a33cff3d14fbb676fc0))
+* **deps:** update dependency knip to v3.7.0 ([262db0e](https://github.com/sheerlox/import-from-esm/commit/262db0eb8521a09fc5135a0044e895284fcb0e52))
+* **deps:** update dependency knip to v3.7.1 ([92b81c0](https://github.com/sheerlox/import-from-esm/commit/92b81c08098babf5a8c5ccebbf99683c11decba9))
+* **deps:** update dependency knip to v3.8.1 ([#74](https://github.com/sheerlox/import-from-esm/issues/74)) ([5901212](https://github.com/sheerlox/import-from-esm/commit/590121285e7675d70e9c7e860e511097a2c4acd3))
+* **deps:** update dependency knip to v3.8.2 ([ce76cd9](https://github.com/sheerlox/import-from-esm/commit/ce76cd92d16011b196cf363ad0ef88101cc369d2))
+* **deps:** update dependency knip to v3.8.3 ([44863ca](https://github.com/sheerlox/import-from-esm/commit/44863cacc803b48394eb94a39cc21685cfe45235))
+* **deps:** update dependency knip to v3.8.4 ([d30c5ae](https://github.com/sheerlox/import-from-esm/commit/d30c5aed0ec7d4fff54d7de4ce5eb5302404a26b))
+* **deps:** update dependency knip to v3.9.0 ([ac3dbaa](https://github.com/sheerlox/import-from-esm/commit/ac3dbaa49651a93fc0ce262bc926b4b213703cc5))
+* **deps:** update dependency semantic-release to v22.0.10 ([#67](https://github.com/sheerlox/import-from-esm/issues/67)) ([26b45f6](https://github.com/sheerlox/import-from-esm/commit/26b45f61c64a4ec806b3f3243ab5674e9eeb69d5))
+* **deps:** update dependency semantic-release to v22.0.12 ([#73](https://github.com/sheerlox/import-from-esm/issues/73)) ([84320df](https://github.com/sheerlox/import-from-esm/commit/84320df18c4d11e0776b78f8b8b37382b52cb715))
+* **deps:** update dependency semantic-release to v22.0.8 ([#58](https://github.com/sheerlox/import-from-esm/issues/58)) ([f32eb14](https://github.com/sheerlox/import-from-esm/commit/f32eb14afa3e712e7ba8f8bffc8b3c7178fad180))
+* **deps:** update dependency tsd to v0.30.0 ([cce491e](https://github.com/sheerlox/import-from-esm/commit/cce491ef32170a5b5c00e4ac7c9a3939f6dbd675))
+* **deps:** update dependency tsd to v0.30.1 ([e750e1b](https://github.com/sheerlox/import-from-esm/commit/e750e1bd436a113b6d6ee53023a0376305a36076))
+* **deps:** update dependency tsd to v0.30.2 ([8c9b69c](https://github.com/sheerlox/import-from-esm/commit/8c9b69c38c73439c1497db833995c04172ebe0e0))
+* **deps:** update dependency tsd to v0.30.3 ([a01e420](https://github.com/sheerlox/import-from-esm/commit/a01e420ffd2aa9435655ff956c0423e4cfdd8617))
+* **readme:** add monthly downloads badge ([b6da755](https://github.com/sheerlox/import-from-esm/commit/b6da755d9be7ff62e42761c9a4895b38cf805f81))
+* **readme:** remove "PRs welcome" badge ([5f70320](https://github.com/sheerlox/import-from-esm/commit/5f70320b7e8b90dca86f26eed487aa2ca298f5aa))
+
 ## [1.3.3](https://github.com/sheerlox/import-from-esm/compare/v1.3.2...v1.3.3) (2023-11-19)
 
 
