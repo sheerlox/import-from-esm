@@ -4,9 +4,10 @@
 		"#subpath-import": "./subpath-import.js"
 	},
 	"scripts": {
-		"test": "ava nested.test.js"
+		"test": "cross-env NODE_OPTIONS=--experimental-import-meta-resolve ava nested.test.js"
 	},
 	"devDependencies": {
-		"ava": "5.3.1"
+		"ava": "5.3.1",
+		"cross-env": "7.0.3"
 	}
 }
