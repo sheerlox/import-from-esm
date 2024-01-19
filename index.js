@@ -13,10 +13,10 @@ function resolveToFileURL(...paths) {
 	return pathToFileURL(resolve(...paths));
 }
 
-function tryResolve(moduleId, baseURL) {
+async function tryResolve(moduleId, baseURL) {
 	debug(`Trying to resolve '${moduleId}' from '${baseURL.href}'`);
 	try {
-		return import.meta.resolve(moduleId, baseURL.href);
+		return await import.meta.resolve(moduleId, baseURL.href);
 	} catch {
 		debug(`Failed to resolve '${moduleId}' from ${baseURL.href}`);
 	}
@@ -80,17 +80,20 @@ async function importFrom(fromDirectory, moduleId) {
 		debug(`'${moduleId}' is not a file module`);
 
 		const parentModulePath = resolveToFileURL(fromDirectory, 'noop.js');
-		loadedModule = await tryImport(tryResolve(moduleId, parentModulePath));
+		loadedModule = await tryImport(
+			await tryResolve(moduleId, parentModulePath),
+		);
 
 		// Support for extensionless subpaths (not subpath exports)
 		if (!loadedModule && !moduleId.startsWith('#')) {
 			// Try to resolve file path with added extensions
 
 			for (const ext of EXTENSIONS) {
-				// eslint-disable-next-line no-await-in-loop
+				/* eslint-disable no-await-in-loop */
 				loadedModule = await tryImport(
-					tryResolve(`${moduleId}${ext}`, parentModulePath),
+					await tryResolve(`${moduleId}${ext}`, parentModulePath),
 				);
+				/* eslint-enable no-await-in-loop */
 
 				if (loadedModule) {
 					break;
