@@ -14,7 +14,7 @@
 		"Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)"
 	],
 	"engines": {
-		"node": ">=20.6"
+		"node": ">=16.20"
 	},
 	"scripts": {
 		"test": "npm run test:all && npm run knip",
