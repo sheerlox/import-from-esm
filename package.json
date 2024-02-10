@@ -58,7 +58,7 @@
 		"c8": "9.1.0",
 		"cross-env": "7.0.3",
 		"knip": "4.4.0",
-		"semantic-release": "23.0.0",
+		"semantic-release": "23.0.1",
 		"tsd": "0.30.4",
 		"xo": "0.56.0"
 	},
