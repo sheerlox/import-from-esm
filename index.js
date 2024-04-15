@@ -82,13 +82,27 @@ async function importFrom(fromDirectory, moduleId) {
 		// Support for extensionless subpaths (not subpath exports)
 		if (!loadedModule && !moduleId.startsWith('#')) {
 			// Try to resolve file path with added extensions
-
 			for (const ext of EXTENSIONS) {
 				// eslint-disable-next-line no-await-in-loop
 				loadedModule = await tryImport(tryResolve(`${moduleId}${ext}`, parentModulePath));
 
 				if (loadedModule) {
 					break;
+				}
+			}
+
+			// Support for extensionless subpaths index files
+			if (!loadedModule) {
+				// Treat `moduleId` as a directory and try to resolve its index with added extensions
+				for (const ext of EXTENSIONS) {
+					// eslint-disable-next-line no-await-in-loop
+					loadedModule = await tryImport(
+						tryResolve(`${moduleId}/index${ext}`, parentModulePath),
+					);
+
+					if (loadedModule) {
+						break;
+					}
 				}
 			}
 		}
