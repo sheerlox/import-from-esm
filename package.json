@@ -50,6 +50,7 @@
 		"@insurgent/export-map-test": "1.0.1",
 		"@insurgent/json-index-test": "2.0.0",
 		"@insurgent/json-main-test": "2.0.0",
+		"@insurgent/subpaths-test": "1.0.0",
 		"@insurgentlab/conventional-changelog-preset": "7.0.0",
 		"@semantic-release/changelog": "6.0.3",
 		"@semantic-release/git": "10.0.1",

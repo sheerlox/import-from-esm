@@ -12,6 +12,7 @@
 		"@insurgent/export-map-test",
 		"@insurgent/json-index-test",
 		"@insurgent/json-main-test",
+		"@insurgent/subpaths-test",
 		"@semantic-release/commit-analyzer",
 		"@semantic-release/github",
 		"@semantic-release/npm",
