@@ -44,3 +44,7 @@ test('package - JSON main export', t => testImportFromPackage(t, importFrom, 'te
 
 test('package - subpath - extensioned', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/json-main-test/subpath.json', { subpath: true }));
 test('package - subpath - extensionless', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/json-index-test/subpath', { subpath: true }));
+
+test('package - subpath - file - extensioned', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/subpaths-test/directory/file.js', 'directory-file'));
+test('package - subpath - file - extensionless', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/subpaths-test/directory/file', 'directory-file'));
+test('package - subpath - directory index', t => testImportFromPackage(t, importFrom, 'tests/fixture/', '@insurgent/subpaths-test/directory', 'directory-index'));
