@@ -17,6 +17,6 @@
 		"@semantic-release/github",
 		"@semantic-release/npm",
 		"@semantic-release/release-notes-generator",
-		"@insurgentlab/conventional-changelog-preset"
+		"@insurgent/conventional-changelog-preset"
 	]
 }
