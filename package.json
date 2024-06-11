@@ -51,7 +51,7 @@
 		"@insurgent/json-index-test": "2.0.0",
 		"@insurgent/json-main-test": "2.0.0",
 		"@insurgent/subpaths-test": "1.0.0",
-		"@insurgentlab/conventional-changelog-preset": "7.0.0",
+		"@insurgent/conventional-changelog-preset": "8.0.2",
 		"@semantic-release/changelog": "6.0.3",
 		"@semantic-release/git": "10.0.1",
 		"@types/debug": "4.1.12",
