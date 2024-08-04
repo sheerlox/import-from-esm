@@ -37,7 +37,7 @@ jobs:
             tuf-repo-cdn.sigstore.dev:443
 
       - name: Checkout project
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3.0.2
         with:
           persist-credentials: false
 
