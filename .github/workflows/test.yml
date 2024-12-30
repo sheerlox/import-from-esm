@@ -71,7 +71,19 @@ jobs:
         run: npm run lint
 
       - name: Run tests
-        run: npm test
+        run: npm run test:ava
+
+      - name: Run nested tests
+        run: npm run test:nested
+
+      - name: Run fuzzing regression tests
+        run: npm run test:fuzz:regression
+
+      - name: Run fuzz tests
+        run: npm run test:fuzz
+
+      - name: Run TypeScript type definition tests
+        run: npm run test:tsd
 
       - name: Upload coverage report
         if: strategy.job-index == 0
