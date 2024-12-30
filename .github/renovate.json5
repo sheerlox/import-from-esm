@@ -1,0 +1,16 @@
+{
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: ["github>insurgent-lab/.github//renovate/base"],
+  packageRules: [
+    {
+      // disable Node.js updates via asdf because we want to support older versions
+      matchManagers: [
+        'asdf',
+      ],
+      enabled: false,
+      matchPackageNames: [
+        '/nodejs/'
+      ],
+    },
+  ],
+}
