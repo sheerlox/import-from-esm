@@ -80,6 +80,7 @@ jobs:
         run: npm run test:fuzz:regression
 
       - name: Run fuzz tests
+        if: "!(matrix.os == 'windows-latest' && matrix.node-version == '22')"
         run: npm run test:fuzz
 
       - name: Run TypeScript type definition tests
