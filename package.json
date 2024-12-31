@@ -7,7 +7,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/sheerlox/import-from-esm.git"
+		"url": "git+https://github.com/sheerlox/import-from-esm.git"
 	},
 	"author": "Pierre Cavin <me@sherlox.io> (https://github.com/sheerlox)",
 	"contributors": [
