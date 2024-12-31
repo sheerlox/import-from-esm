@@ -1,3 +1,79 @@
+## [2.0.0](https://github.com/sheerlox/import-from-esm/compare/v1.3.4...v2.0.0) (2024-12-31)
+
+### ⚠ Breaking changes
+
+* drop support for Node 16
+
+### 🚨 Tests
+
+* remove --no-warnings Node option ([bd75fce](https://github.com/sheerlox/import-from-esm/commit/bd75fce94e9e5350ff25bdc37ba6c75e1a1d43d2))
+
+### ⚙️ Continuous Integrations
+
+* **action:** add Node 22 to test matrix ([9bced1f](https://github.com/sheerlox/import-from-esm/commit/9bced1f5693e5a0dc5a4a8ab773ddb504f469d5e))
+* **action:** allow all sigstore subdomains ([c63bbc0](https://github.com/sheerlox/import-from-esm/commit/c63bbc0f9d2a50e83de4f114dca11eeba631a809))
+* **action:** allow new scorecard endpoint ([c45dd26](https://github.com/sheerlox/import-from-esm/commit/c45dd26a266bb6f1785bcc3befa2a7f6977c32b8))
+* **action:** don't run fuzzing tests on Windows + Node 22 ([0ff7550](https://github.com/sheerlox/import-from-esm/commit/0ff7550ca023f71bf1b03a6fca33fbf8b581f0c4))
+* **action:** enable npm provenance ([0f85491](https://github.com/sheerlox/import-from-esm/commit/0f85491f1309fc12a834ed65940f76e00748aa23))
+* **action:** run each test separately ([32c1d4b](https://github.com/sheerlox/import-from-esm/commit/32c1d4b111b4eb4ba42cc8ec9ee455665eae2a6b))
+* **action:** update actions/checkout action to v4.2.2 ([#114](https://github.com/sheerlox/import-from-esm/issues/114)) ([fe4cb47](https://github.com/sheerlox/import-from-esm/commit/fe4cb47dbcc840a537abef821ac597c961fbcf89))
+* **action:** update actions/download-artifact action to v4.1.8 ([#117](https://github.com/sheerlox/import-from-esm/issues/117)) ([5e32ca2](https://github.com/sheerlox/import-from-esm/commit/5e32ca26ac5f1bf3808429be0c4ae49f639c171d))
+* **action:** update actions/download-artifact digest to c850b93 ([#96](https://github.com/sheerlox/import-from-esm/issues/96)) ([944cc05](https://github.com/sheerlox/import-from-esm/commit/944cc0585acf0aea3c500be9415bbe518d2266c0))
+* **action:** update actions/setup-node action to v4.1.0 ([#116](https://github.com/sheerlox/import-from-esm/issues/116)) ([a28015f](https://github.com/sheerlox/import-from-esm/commit/a28015f291c7af800dc5e7e173acf9854d389d72))
+* **action:** update actions/setup-node digest to 60edb5d ([#98](https://github.com/sheerlox/import-from-esm/issues/98)) ([9b2c96b](https://github.com/sheerlox/import-from-esm/commit/9b2c96b80a307dc81859c8a590efdbd264210c63))
+* **action:** update actions/upload-artifact action to v4.3.1 ([#90](https://github.com/sheerlox/import-from-esm/issues/90)) ([1990871](https://github.com/sheerlox/import-from-esm/commit/1990871d35dc32efa8b11b5135efa74c73e72f70))
+* **action:** update actions/upload-artifact action to v4.5.0 ([#112](https://github.com/sheerlox/import-from-esm/issues/112)) ([829be50](https://github.com/sheerlox/import-from-esm/commit/829be5082e3040b301a02ad49f852ba4c9b93732))
+* **action:** update actions/upload-artifact digest to 5d5d22a ([#89](https://github.com/sheerlox/import-from-esm/issues/89)) ([0454435](https://github.com/sheerlox/import-from-esm/commit/04544357f267304a82bff0432efac0fdccf3a79e))
+* **action:** update github/codeql-action action to v3.25.0 ([#93](https://github.com/sheerlox/import-from-esm/issues/93)) ([dcbb763](https://github.com/sheerlox/import-from-esm/commit/dcbb763fb39c9068baaadc9099147d6bddd73ce2))
+* **action:** update github/codeql-action action to v3.28.0 ([#109](https://github.com/sheerlox/import-from-esm/issues/109)) ([3fa778e](https://github.com/sheerlox/import-from-esm/commit/3fa778e4aa540acfb68b4a4bb0c9424a3fbc2555))
+* **action:** update insurgent-lab/is-in-pr-action action to v0.2.0 ([#97](https://github.com/sheerlox/import-from-esm/issues/97)) ([6f3650b](https://github.com/sheerlox/import-from-esm/commit/6f3650bc5b3969d9e74700e6547365d6f4432637))
+* **action:** update ossf/scorecard-action action to v2.4.0 ([#118](https://github.com/sheerlox/import-from-esm/issues/118)) ([c33184e](https://github.com/sheerlox/import-from-esm/commit/c33184e8acc6cc8ea186e49d1cb771fa85f2b0d9))
+* **action:** update sonarsource/sonarcloud-github-action action to v2.3.0 ([#120](https://github.com/sheerlox/import-from-esm/issues/120)) ([2d9e917](https://github.com/sheerlox/import-from-esm/commit/2d9e917e2b7fadf2fb0d90d4a7eedf1092c7a634))
+* **action:** update step-security/harden-runner action to v2.10.2 ([#115](https://github.com/sheerlox/import-from-esm/issues/115)) ([3bcace5](https://github.com/sheerlox/import-from-esm/commit/3bcace5ceb039abc676aae38496cd469a4819679))
+* **action:** update step-security/harden-runner action to v2.7.0 ([#95](https://github.com/sheerlox/import-from-esm/issues/95)) ([cb020c9](https://github.com/sheerlox/import-from-esm/commit/cb020c99660b5925535687d8f1a8856d5e4ce41f))
+* **renovate:** don't update Node.js in .tool-versions ([27a1832](https://github.com/sheerlox/import-from-esm/commit/27a1832b9f3f477d78e5c7d7508cfff0b9f6449c))
+* **renovate:** use correct preset & fix node package name ([2e3cb36](https://github.com/sheerlox/import-from-esm/commit/2e3cb36faa40dacc88a70c442725bf051b7bcb76))
+
+### ♻️ Chores
+
+* **deps:** lock file maintenance ([144854b](https://github.com/sheerlox/import-from-esm/commit/144854b0078c98635a5abc4383fbfc8b278ddb7e))
+* **deps:** lock file maintenance ([4c5aeb8](https://github.com/sheerlox/import-from-esm/commit/4c5aeb85c21a39d3ced0a80b1d1a123b23349057))
+* **deps:** lock file maintenance ([ac1f305](https://github.com/sheerlox/import-from-esm/commit/ac1f305d71e89a084e95aca6507d5162d62d4770))
+* **deps:** lock file maintenance ([9d38657](https://github.com/sheerlox/import-from-esm/commit/9d38657d0403fc3c0c7f9b0397d4c3ac0ca57933))
+* **deps:** lock file maintenance ([6579691](https://github.com/sheerlox/import-from-esm/commit/65796918ee56ef89957fd38e95d66858b92ffc15))
+* **deps:** lock file maintenance ([50f2f1f](https://github.com/sheerlox/import-from-esm/commit/50f2f1f9033af3f16a4b5175a0cccc111cbaff5b))
+* **deps:** lock file maintenance ([d2a439a](https://github.com/sheerlox/import-from-esm/commit/d2a439aac89ffaa1ccb89eb55529479123e0c7f4))
+* **deps:** lock file maintenance ([04af189](https://github.com/sheerlox/import-from-esm/commit/04af189e9a0b32b24b8d95f4f76991299c4b8066))
+* **deps:** lock file maintenance ([1419cda](https://github.com/sheerlox/import-from-esm/commit/1419cdafb0bb370ffa33be2faed82c78522ab02d))
+* **deps:** lock file maintenance ([3a55659](https://github.com/sheerlox/import-from-esm/commit/3a5565979b0055c96c36fdc54914697ca62da838))
+* **deps:** lock file maintenance ([e43cca2](https://github.com/sheerlox/import-from-esm/commit/e43cca29b66cd8653f7a5f66296e5485d8c033b5))
+* **deps:** lock file maintenance ([69caf26](https://github.com/sheerlox/import-from-esm/commit/69caf2664e6a287fc9c10b5a33b1c2c440b619b8))
+* **deps:** lock file maintenance ([4fd9496](https://github.com/sheerlox/import-from-esm/commit/4fd9496ba724f45d9addeab1afc0eacf854dffc2))
+* **deps:** lock file maintenance ([660b63b](https://github.com/sheerlox/import-from-esm/commit/660b63ba47fea7f6fc00338874a8f1ad06eb3db1))
+* **deps:** lock file maintenance ([169e8e9](https://github.com/sheerlox/import-from-esm/commit/169e8e9b43ec8588f620fae67ff657a40aa29a01))
+* **deps:** lock file maintenance ([72f3836](https://github.com/sheerlox/import-from-esm/commit/72f3836fd35d6490584556d04b07a3847d534be7))
+* **deps:** lock file maintenance ([91398fd](https://github.com/sheerlox/import-from-esm/commit/91398fdf4a90c5a346c3aafb3738d0bdfa9964e9))
+* **deps:** lock file maintenance ([#105](https://github.com/sheerlox/import-from-esm/issues/105)) ([076c959](https://github.com/sheerlox/import-from-esm/commit/076c95981295b591b65f9218edd7d90b7dc0efda))
+* **deps:** lock file maintenance ([#119](https://github.com/sheerlox/import-from-esm/issues/119)) ([445c8c9](https://github.com/sheerlox/import-from-esm/commit/445c8c93dc10af8b5e8104a46e26ab3e3d3ad22e))
+* **deps:** lock file maintenance ([#125](https://github.com/sheerlox/import-from-esm/issues/125)) ([f1c57df](https://github.com/sheerlox/import-from-esm/commit/f1c57df20f2ef5b2e4649bf0997e833c258b1fc7))
+* **deps:** lock file maintenance ([#132](https://github.com/sheerlox/import-from-esm/issues/132)) ([6759be6](https://github.com/sheerlox/import-from-esm/commit/6759be6abf413582cc7fbfd980446108490eca92))
+* **deps:** lock file maintenance ([#135](https://github.com/sheerlox/import-from-esm/issues/135)) ([b786962](https://github.com/sheerlox/import-from-esm/commit/b786962b78cfd0be5a5b0e2fed7172457ec36f31))
+* **deps:** migrate to [@insurgent](https://github.com/insurgent)/conventional-changelog-preset package ([2d5922f](https://github.com/sheerlox/import-from-esm/commit/2d5922fc7733aaa2cfcb4b5873a3968e4be575e5))
+* **deps:** remove unused cross-env dependency ([2aab0db](https://github.com/sheerlox/import-from-esm/commit/2aab0dbd3d2dd2aecb2bb9306f119efe757ba50c))
+* **deps:** update dependency semantic-release to v23.0.8 ([#106](https://github.com/sheerlox/import-from-esm/issues/106)) ([4a8a3b7](https://github.com/sheerlox/import-from-esm/commit/4a8a3b772556cd8967236e959baf57320040bfec))
+* **deps:** update dependency semantic-release to v23.1.1 ([5a571d3](https://github.com/sheerlox/import-from-esm/commit/5a571d38636f1abb2f02bba3854fdb5ff206d847))
+* **deps:** update dependency semantic-release to v24.1.0 ([48917e8](https://github.com/sheerlox/import-from-esm/commit/48917e86e6a8d812d2c4f4b2de6d0bf820222b2f))
+* **deps:** update dependency semantic-release to v24.1.1 ([#131](https://github.com/sheerlox/import-from-esm/issues/131)) ([8cb82bf](https://github.com/sheerlox/import-from-esm/commit/8cb82bffce367f4e2950916c468710406dd4d8ac))
+* **deps:** update dependency semantic-release to v24.1.2 ([7cbed1e](https://github.com/sheerlox/import-from-esm/commit/7cbed1e1ac6a34138bcb88ec3c8a6577a3ba88ef))
+* **deps:** update dependency semantic-release to v24.1.3 ([#133](https://github.com/sheerlox/import-from-esm/issues/133)) ([92b7d2d](https://github.com/sheerlox/import-from-esm/commit/92b7d2d86ed57bf0d56201f376640ff7069eb298))
+* **deps:** update dependency semantic-release to v24.2.0 ([f1e4e68](https://github.com/sheerlox/import-from-esm/commit/f1e4e6854449b348f9f02752b2d746451a832400))
+* **deps:** update dependency tsd to v0.31.1 ([b086815](https://github.com/sheerlox/import-from-esm/commit/b086815d1b8fde5199ac346b5199791671138eee))
+* **deps:** update dependency tsd to v0.31.2 ([#130](https://github.com/sheerlox/import-from-esm/issues/130)) ([99b1e13](https://github.com/sheerlox/import-from-esm/commit/99b1e13de11ff05eebed7c491a911462fd80ecec))
+* **deps:** update semantic-release related packages ([#121](https://github.com/sheerlox/import-from-esm/issues/121)) ([95ad0d5](https://github.com/sheerlox/import-from-esm/commit/95ad0d561064b7a3ae3c3852baebec65ff1090aa))
+* drop support for Node 16 ([c8ec660](https://github.com/sheerlox/import-from-esm/commit/c8ec6603e269ed28fa9732d81f043698906260ef))
+* update knip ignores ([afc6749](https://github.com/sheerlox/import-from-esm/commit/afc6749ffa1d2c389a1b719425bb63cae1a6b389))
+* update semantic-release config ([ba64afa](https://github.com/sheerlox/import-from-esm/commit/ba64afab5396eefaec09880d56ed23c277931212))
+
 ## [1.3.4](https://github.com/sheerlox/import-from-esm/compare/v1.3.3...v1.3.4) (2024-04-15)
 
 
