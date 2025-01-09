@@ -1,5 +1,5 @@
 import { createRequire } from 'node:module';
-import { extname, resolve } from 'node:path';
+import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import createDebug from 'debug';
@@ -11,7 +11,7 @@ const require = createRequire(import.meta.url);
 const EXTENSIONS = ['.js', '.mjs', '.cjs', '.json'];
 
 function resolveToFileURL(...paths) {
-	return pathToFileURL(resolve(...paths));
+	return pathToFileURL(path.resolve(...paths));
 }
 
 function tryResolve(moduleId, baseURL) {
@@ -31,7 +31,7 @@ async function tryImport(fileURL) {
 	try {
 		debug(`Trying to determine file extension for '${fileURL.href}'`);
 		const filePath = fileURLToPath(fileURL);
-		const asJSON = extname(filePath) === '.json';
+		const asJSON = path.extname(filePath) === '.json';
 
 		debug(`Trying to import '${fileURL.href}'${asJSON ? ' as JSON' : ''}`);
 		return asJSON ? require(filePath) : await import(fileURL);
@@ -59,12 +59,12 @@ async function importFrom(fromDirectory, moduleId) {
 		// Try to resolve exact file path
 		loadedModule = await tryImport(localModulePath);
 
-		if (!loadedModule && !EXTENSIONS.includes(extname(moduleId))) {
+		if (!loadedModule && !EXTENSIONS.includes(path.extname(moduleId))) {
 			// Try to resolve file path with added extensions
 
-			for (const ext of EXTENSIONS) {
+			for (const extension of EXTENSIONS) {
 				// eslint-disable-next-line no-await-in-loop
-				loadedModule = await tryImport(`${localModulePath}${ext}`);
+				loadedModule = await tryImport(`${localModulePath}${extension}`);
 				if (loadedModule) {
 					break;
 				}
@@ -82,9 +82,9 @@ async function importFrom(fromDirectory, moduleId) {
 		// Support for extensionless subpaths (not subpath exports)
 		if (!loadedModule && !moduleId.startsWith('#')) {
 			// Try to resolve file path with added extensions
-			for (const ext of EXTENSIONS) {
+			for (const extension of EXTENSIONS) {
 				// eslint-disable-next-line no-await-in-loop
-				loadedModule = await tryImport(tryResolve(`${moduleId}${ext}`, parentModulePath));
+				loadedModule = await tryImport(tryResolve(`${moduleId}${extension}`, parentModulePath));
 
 				if (loadedModule) {
 					break;
@@ -94,12 +94,13 @@ async function importFrom(fromDirectory, moduleId) {
 			// Support for extensionless subpaths index files
 			if (!loadedModule) {
 				// Treat `moduleId` as a directory and try to resolve its index with added extensions
-				for (const ext of EXTENSIONS) {
+				for (const extension of EXTENSIONS) {
 					// eslint-disable-next-line no-await-in-loop
 					loadedModule = await tryImport(
-						tryResolve(`${moduleId}/index${ext}`, parentModulePath),
+						tryResolve(`${moduleId}/index${extension}`, parentModulePath),
 					);
 
+					// eslint-disable-next-line max-depth
 					if (loadedModule) {
 						break;
 					}
