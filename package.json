@@ -46,7 +46,7 @@
 		"import-meta-resolve": "^4.0.0"
 	},
 	"devDependencies": {
-		"@fast-check/ava": "1.2.1",
+		"@fast-check/ava": "2.0.1",
 		"@insurgent/export-map-test": "1.0.1",
 		"@insurgent/json-index-test": "2.0.0",
 		"@insurgent/json-main-test": "2.0.0",
