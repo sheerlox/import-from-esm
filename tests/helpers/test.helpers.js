@@ -1,30 +1,30 @@
 /* eslint-disable max-params */
-import { resolve } from 'node:path';
+import path from 'node:path';
 
-export const testImportFromLocal = async (t, importFrom, dir, file, ext, expected = 'unicorn') => {
-	const extString = ext ? `.${ext}` : '';
-	const relativeModuleId = `./${file}${extString}`;
-	const absoluteModuleId = resolve(dir, `${file}${extString}`);
-	const nonExistentModuleId = `./nonexistent${extString}`;
+export const testImportFromLocal = async (t, importFrom, directory, file, extension, expected = 'unicorn') => {
+	const extensionString = extension ? `.${extension}` : '';
+	const relativeModuleId = `./${file}${extensionString}`;
+	const absoluteModuleId = path.resolve(directory, `${file}${extensionString}`);
+	const nonExistentModuleId = `./nonexistent${extensionString}`;
 
-	t.deepEqual(await importFrom.silent(dir, relativeModuleId), expected);
-	t.is(await importFrom.silent(dir, absoluteModuleId), expected);
+	t.deepEqual(await importFrom.silent(directory, relativeModuleId), expected);
+	t.is(await importFrom.silent(directory, absoluteModuleId), expected);
 
-	const moduleNotFoundError = await t.throwsAsync(importFrom(dir, nonExistentModuleId));
+	const moduleNotFoundError = await t.throwsAsync(importFrom(directory, nonExistentModuleId));
 	t.is(moduleNotFoundError.code, 'MODULE_NOT_FOUND');
 	t.regex(moduleNotFoundError.message, new RegExp(`^Cannot find module '${nonExistentModuleId}'`));
 
-	t.is(await importFrom.silent(dir, nonExistentModuleId), undefined);
+	t.is(await importFrom.silent(directory, nonExistentModuleId), undefined);
 };
 
-export const testImportFromPackage = async (t, importFrom, dir, packageName, expected) => {
+export const testImportFromPackage = async (t, importFrom, directory, packageName, expected) => {
 	const nonExistentPackageName = 'nonexistent-package';
 
-	t.deepEqual(await importFrom.silent(dir, packageName), expected);
+	t.deepEqual(await importFrom.silent(directory, packageName), expected);
 
-	const moduleNotFoundError = await t.throwsAsync(importFrom(dir, nonExistentPackageName));
+	const moduleNotFoundError = await t.throwsAsync(importFrom(directory, nonExistentPackageName));
 	t.is(moduleNotFoundError.code, 'MODULE_NOT_FOUND');
 	t.regex(moduleNotFoundError.message, new RegExp(`^Cannot find module '${nonExistentPackageName}'`));
 
-	t.is(await importFrom.silent(dir, nonExistentPackageName), undefined);
+	t.is(await importFrom.silent(directory, nonExistentPackageName), undefined);
 };
