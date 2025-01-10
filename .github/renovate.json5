@@ -2,7 +2,7 @@
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "github>insurgent-lab/.github//renovate/base",
-    "github>insurgent-lab/.github//renovate/js-ts/js-ts-library"
+    "github>insurgent-lab/.github//renovate/js-ts/js-ts-lib"
   ],
   packageRules: [
     {
